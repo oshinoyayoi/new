@@ -3,23 +3,20 @@
   padding: 0;
   text-align: center;
 }
-
 nav {
   position: relative;
   display: inline-block;
   background-color: rgb(255, 255, 255);
   width: 100%;
 }
-
 .category {
   position: relative;
   margin: 0 auto;
   height: 50px;
   width: 100%;
-  background-color: rgba(211, 207, 207, 0.9333333333);
+  background-color: #d3cfcfee;
   text-align: center;
 }
-
 .global_category {
   width: 240px;
   height: 50px;
@@ -38,21 +35,20 @@ nav {
   list-style-type: none;
   margin: 0;
   padding: 0;
+
   font-size: 1.4rem;
   line-height: 1.5;
   min-height: 100%;
   background-color: #fff;
   overflow: auto;
 }
-
 .global_category:hover .content_category {
   display: block;
 }
-
 .content_category {
   border: 1px solid #dbdbdb;
   border-top-width: 0;
   background-color: #fff;
   position: relative;
   overflow: hidden;
-}/*# sourceMappingURL=App.css.map */
+}
