@@ -16,7 +16,7 @@ function App() {
   return (
     <nav>
       <div className="category">
-        <div className="global_category">カテゴリ</div>
+        <div className="button">カテゴリ</div>
         <div className="content_category">
           <ul className="goodsList">
             {categories.map((Item) => {

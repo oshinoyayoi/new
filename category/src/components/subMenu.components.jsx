@@ -1,3 +1,5 @@
+import "./subMenu.styles.css";
+
 const SubMenu = ({ sub }) => {
   const { categoryName } = sub;
   return (

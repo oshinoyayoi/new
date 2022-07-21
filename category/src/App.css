@@ -4,55 +4,53 @@
   text-align: center;
 }
 
-nav {
-  position: relative;
-  display: inline-block;
-  background-color: rgb(255, 255, 255);
-  width: 100%;
-}
-
 .category {
+  display: inline-block;
   position: relative;
   margin: 0 auto;
   height: 50px;
   width: 100%;
-  background-color: rgba(211, 207, 207, 0.9333333333);
+  background-color: rgba(255, 255, 255, 0.9333333333);
   text-align: center;
+  border-style: solid;
+  border-width: 1px;
+  box-sizing: border-box;
 }
-
-.global_category {
+.category .button {
+  display: block;
   width: 240px;
   height: 50px;
   text-align: center;
   line-height: 50px;
   color: #333;
   background-color: #f0f0f0;
+  position: relative;
 }
-
-.content_category {
-  z-index: 1;
+.category .button:hover + .content_category {
   display: block;
-  height: 500px;
-  width: 500px;
+}
+.category .content_category {
+  display: block;
+  height: 350px;
+  width: 1000px;
   position: absolute;
   list-style-type: none;
   margin: 0;
   padding: 0;
-  font-size: 1.4rem;
+  font-size: 14px;
   line-height: 1.5;
   min-height: 100%;
   background-color: #fff;
-  overflow: auto;
-}
-
-.global_category:hover .content_category {
-  display: block;
-}
-
-.content_category {
   border: 1px solid #dbdbdb;
   border-top-width: 0;
-  background-color: #fff;
-  position: relative;
-  overflow: hidden;
+}
+.category .content_category:hover {
+  display: block;
+}
+.category .content_category .goodsList {
+  overflow: auto;
+  overflow-x: hidden;
+  width: 240px;
+  height: 100%;
+  list-style: none;
 }/*# sourceMappingURL=App.css.map */
