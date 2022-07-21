@@ -16,7 +16,7 @@
     }
   }
   .second-background {
-    display: block;
+    display: none;
     box-sizing: border-box;
     position: absolute;
     top: 0;
@@ -26,6 +26,19 @@
     padding: 15px 0px 15px 30px;
     &:hover {
       display: block;
+    }
+    .img {
+      position: absolute;
+    }
+    .category-name {
+      position: relative;
+      display: inline-block;
+      vertical-align: middle;
+      font-family: "icon";
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      color: #009e96;
     }
     .category-List {
       display: flex;

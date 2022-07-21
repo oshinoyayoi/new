@@ -1,10 +1,4 @@
 .subCategory-list {
-  box-sizing: border-box;
-  display: none;
-  position: absolute;
-  top: 0px;
-  left: 240px;
-  width: calc(100% - 240px);
-  height: 100%;
-  padding: 20px;
+  width: 30%;
+  padding: 13px 14px 0 0;
 }/*# sourceMappingURL=subMenu.styles.css.map */

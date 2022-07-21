@@ -5,12 +5,12 @@
 }
 
 .category {
-  display: inline-block;
+  display: block;
   position: relative;
   margin: 0 auto;
   height: 50px;
   width: 100%;
-  background-color: #ffffffee;
+  background-color: #f0eaeaee;
   text-align: center;
   border-style: solid;
   border-width: 1px;
@@ -21,8 +21,8 @@
     height: 50px;
     text-align: center;
     line-height: 50px;
-    color: #333;
-    background-color: #f0f0f0;
+    color: rgb(14, 13, 13);
+    background-color: #dbd1d1;
     position: relative;
     &:hover + .content_category {
       display: block;
@@ -32,8 +32,7 @@
     display: block;
     height: 350px;
     width: 1000px;
-    position: absolute;
-    list-style-type: none;
+    position: relative;
     margin: 0;
     padding: 0;
     font-size: 14px;
@@ -42,6 +41,7 @@
     background-color: #fff;
     border: 1px solid #dbdbdb;
     border-top-width: 0;
+    text-align: center;
     &:hover {
       display: block;
     }

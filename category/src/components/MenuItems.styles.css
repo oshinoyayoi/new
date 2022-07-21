@@ -17,7 +17,7 @@
   display: block;
 }
 .first-level-categories .second-background {
-  display: block;
+  display: none;
   box-sizing: border-box;
   position: absolute;
   top: 0;
@@ -28,6 +28,19 @@
 }
 .first-level-categories .second-background:hover {
   display: block;
+}
+.first-level-categories .second-background .img {
+  position: absolute;
+}
+.first-level-categories .second-background .category-name {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  font-family: "icon";
+  font-style: normal;
+  font-size: 20px;
+  line-height: 1;
+  color: #009e96;
 }
 .first-level-categories .second-background .category-List {
   display: flex;
