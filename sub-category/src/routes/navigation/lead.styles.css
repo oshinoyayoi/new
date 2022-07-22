@@ -1,0 +1,7 @@
+.swiper-container {
+  display: flex;
+  position: relative;
+}
+.swiper-container span {
+  flex-shrink: 1;
+}/*# sourceMappingURL=lead.styles.css.map */
