@@ -30,7 +30,7 @@
   display: block;
 }
 .category .content_category {
-  display: block;
+  display: none;
   height: 350px;
   width: 1000px;
   position: relative;
