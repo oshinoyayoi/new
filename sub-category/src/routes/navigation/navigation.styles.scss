@@ -9,4 +9,26 @@
   color: #333;
   background-color: rgb(240, 239, 239);
   display: inline;
+  .category-select {
+    font-size: 1.4rem;
+    line-height: 1.42857;
+    color: #333;
+    background-color: rgb(240, 239, 239);
+    text-size-adjust: 100%;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    .p-condition-h {
+      display: block;
+      font-size: 1.5em;
+      margin-block-start: 0.83em;
+      margin-block-end: 0.83em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      font-weight: bold;
+    }
+  }
+  .colname-select {
+  }
 }

@@ -9,15 +9,8 @@ const Navigation = () => {
           <h2 className="p-condition-h">
             <span>カテゴリを選択</span>
           </h2>
-          <div className="p-condition-body">
-            <h3 className="p-condition-t">カテゴリ</h3>
-            <ul className="g-sm-lineGrid">
-              <li>1</li>
-              <li>2</li>
-              <li>3</li>
-              <li>4</li>
-            </ul>
-          </div>
+
+          <div className="p-condition-body">没有子类时不显示</div>
         </section>
         <section className="colname-select">
           <h2 className="p-condition-h">
@@ -38,16 +31,16 @@ const Navigation = () => {
                 <span>機能</span>
                 <div className="select-box">
                   <ul className="g-lineGrid-item">
-                    <div class="item item-checkbox">
-                      <label class="checkbox">
+                    <div className="item item-checkbox">
+                      <label className="checkbox">
                         <input type="checkbox" />
                       </label>
                       無段階リクライ(6)
                     </div>
                   </ul>
                   <ul className="g-lineGrid-item">
-                    <div class="item item-checkbox">
-                      <label class="checkbox">
+                    <div className="item item-checkbox">
+                      <label className="checkbox">
                         <input type="checkbox" />
                       </label>
                       おっとまん付き(7)
@@ -59,8 +52,8 @@ const Navigation = () => {
                 <span>素材・加工</span>
                 <div className="select-box">
                   <ul className="g-lineGrid-item">
-                    <div class="item item-checkbox">
-                      <label class="checkbox">
+                    <div className="item item-checkbox">
+                      <label className="checkbox">
                         <input type="checkbox" />
                       </label>
                       ポケットコイル (2)
@@ -72,16 +65,16 @@ const Navigation = () => {
                 <span>商品の説明</span>
                 <div className="select-box">
                   <ul className="g-lineGrid-item">
-                    <div class="item item-checkbox">
-                      <label class="checkbox">
+                    <div className="item item-checkbox">
+                      <label className="checkbox">
                         <input type="checkbox" />
                       </label>
                       座面普通 (9)
                     </div>
                   </ul>
                   <ul className="g-lineGrid-item">
-                    <div class="item item-checkbox">
-                      <label class="checkbox">
+                    <div className="item item-checkbox">
+                      <label className="checkbox">
                         <input type="checkbox" />
                       </label>
                       座面固め(2)

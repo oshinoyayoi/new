@@ -18,7 +18,7 @@ function Category() {
       <div className="category">
         <div className="button">カテゴリ</div>
         <div className="content_category">
-          <ul className="goodsList">
+          <ul className="a-goodsList">
             {categories.map((Item) => {
               return <MenuItem key={Item.categoryId} Item={Item} />;
             })}

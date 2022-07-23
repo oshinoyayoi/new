@@ -5,4 +5,14 @@
   display: inline;
   position: relative;
   left: 300px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
+}
+.g-layout-body .count-and-orderby {
+  display: flex;
+  margin-bottom: 15px;
+  border-top: 2px solid #009e96;
+  background-color: #f7f7f7;
+  align-items: center;
+  justify-content: space-between;
 }/*# sourceMappingURL=product.styles.css.map */
