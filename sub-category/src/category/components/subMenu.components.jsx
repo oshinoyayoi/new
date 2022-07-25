@@ -1,10 +1,13 @@
+import { Link } from "react-router-dom";
 import "./subMenu.styles.css";
 
 const SubMenu = ({ sub }) => {
   const { categoryName } = sub;
   return (
     <div className="subCategory-list">
-      <span>{categoryName}</span>
+      <Link className="toSubCategory" to="/subHome">
+        {categoryName}
+      </Link>
     </div>
   );
 };
