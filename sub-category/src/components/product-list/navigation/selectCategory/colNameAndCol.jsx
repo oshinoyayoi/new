@@ -1,21 +1,20 @@
-import React, { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
-import GoodsItems from "././components/goodsItems";
-import "./goods-List.styles.css";
+import GoodsItems from "../../components/goodsItems";
 
-function GoodsList() {
+function ColNameAndCol() {
   const [goodslist, setGoodsList] = useState([]);
 
   //获取所有内容,get
   useEffect(() => {
     axios
-      .get("http://localhost:8080/newList")
+      .get("http://localhost:8080/newLists")
       .then((response) => setGoodsList(response.data.data));
   }, []);
 
   return (
-    <div>
-      <div className="goodsList">
+    <div className="main-FaceAttributes">
+      <div className="colNameAndCol">
         {goodslist.map((goods) => {
           return <GoodsItems key={goods.goodsId} goods={goods} />;
         })}
@@ -23,5 +22,4 @@ function GoodsList() {
     </div>
   );
 }
-
-export default GoodsList;
+export default ColNameAndCol;

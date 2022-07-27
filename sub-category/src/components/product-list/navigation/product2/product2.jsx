@@ -2,18 +2,18 @@ import { createContext, Fragment } from "react";
 import "./product.styles.css";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import GoodsItems from "./components/goodsItems";
+import GoodsItems from "../../components/goodsItems";
 
 //创建一个context
 export const Context = createContext([]);
 
-const Product = () => {
+const Product2 = () => {
   const [goodslist, setGoodsList] = useState([]);
 
   //获取所有内容,get
   useEffect(() => {
     axios
-      .get("http://localhost:8080/newList")
+      .get("http://localhost:8080/newLists")
       .then((response) => setGoodsList(response.data.data));
   }, []);
 
@@ -48,7 +48,6 @@ const Product = () => {
       setGoodsList([...goodslist]);
     }
   }
-
   //setGoodsList
 
   return (
@@ -98,4 +97,4 @@ const Product = () => {
   );
 };
 
-export default Product;
+export default Product2;

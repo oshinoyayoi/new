@@ -1,12 +1,9 @@
 import { Fragment } from "react";
 import "./navigation.styles.css";
 import SelectCategory from "./selectCategory/selectCategory";
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
-  /* const deletSelect=()=>{
- 
-  };
-*/
   return (
     <Fragment>
       <div className="g-siderbar">
@@ -28,7 +25,9 @@ const Navigation = () => {
               <section className="p-condition-item">
                 <div className="p-condition-tiem-inner">
                   <h3 className="p-condition-t">現在絞り込んでいる条件</h3>
-                  <ul className="g-flow-xs"></ul>
+                  <ul className="g-flow-xs">
+                    <li>無段階リクライ</li>
+                  </ul>
                 </div>
                 <div className="p-condition-btns">
                   <button className="clear-btn">全条件をクリア</button>
@@ -44,7 +43,14 @@ const Navigation = () => {
                         <label className="checkbox">
                           <input type="checkbox" />
                         </label>
-                        無段階リクライ(4)
+                        <Link
+                          className="nav-link"
+                          to="/subHome1"
+                          style={{ textDecoration: "none" }}
+                        >
+                          {" "}
+                          無段階リクライ(4)
+                        </Link>
                       </div>
                     </ul>
                     <ul className="g-lineGrid-item">
@@ -52,7 +58,14 @@ const Navigation = () => {
                         <label className="checkbox">
                           <input type="checkbox" />
                         </label>
-                        おっとまん付き(6)
+                        <Link
+                          className="nav-link"
+                          to="/subHome1"
+                          style={{ textDecoration: "none" }}
+                        >
+                          {" "}
+                          おっとまん付き(6)
+                        </Link>
                       </div>
                     </ul>
                   </div>
@@ -66,7 +79,14 @@ const Navigation = () => {
                         <label className="checkbox">
                           <input type="checkbox" />
                         </label>
-                        ポケットコイル (2)
+                        <Link
+                          className="nav-link"
+                          to="/subHome1"
+                          style={{ textDecoration: "none" }}
+                        >
+                          {" "}
+                          ポケットコイル (2)
+                        </Link>
                       </div>
                     </ul>
                   </div>
@@ -80,7 +100,14 @@ const Navigation = () => {
                         <label className="checkbox">
                           <input type="checkbox" />
                         </label>
-                        座面普通 (7)
+                        <Link
+                          className="nav-link"
+                          to="/subHome1"
+                          style={{ textDecoration: "none" }}
+                        >
+                          {" "}
+                          座面普通 (7)
+                        </Link>
                       </div>
                     </ul>
                     <ul className="g-lineGrid-item">
@@ -88,7 +115,14 @@ const Navigation = () => {
                         <label className="checkbox">
                           <input type="checkbox" />
                         </label>
-                        座面固め(2)
+                        <Link
+                          className="nav-link"
+                          to="/subHome1"
+                          style={{ textDecoration: "none" }}
+                        >
+                          {" "}
+                          座面固め(2)
+                        </Link>
                       </div>
                     </ul>
                   </div>
