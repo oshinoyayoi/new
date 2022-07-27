@@ -1,7 +1,6 @@
 import Introduction from "../../components/introduction/introduction.components";
 import Category from "../../category/category";
 import { Outlet } from "react-router-dom";
-
 import { Fragment } from "react";
 import Navigation from "../../components/product-list/navigation/navigation.component";
 import Lead from "../../components/product-list/navigation/lead.component";
@@ -12,7 +11,7 @@ const SubHome1 = () => {
     <Fragment>
       <div className="subCategoryHome1">
         <Category />
-        <Lead />
+
         <Navigation />
         <Introduction />
         <Product2 />

@@ -13,7 +13,13 @@ const MenuItem = ({ Item }) => {
           <span className="category-name">{categoryName}</span>
           <ul className="category-List">
             {subList.map((sub) => {
-              return <SubMenu key={sub.categoryId} sub={sub} />;
+              return (
+                <SubMenu
+                  key={sub.categoryId}
+                  sub={sub}
+                  firstLevelName={categoryName}
+                />
+              );
             })}
           </ul>
         </div>

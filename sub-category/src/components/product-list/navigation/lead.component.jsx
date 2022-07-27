@@ -1,8 +1,11 @@
 import { Fragment } from "react";
 import "./lead.styles.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Lead = () => {
+  const categoryLocation = useLocation().state;
+  const { categoryName, firstLevelName } = categoryLocation;
+
   return (
     <Fragment>
       <div className="swiper-container">
@@ -12,9 +15,9 @@ const Lead = () => {
           </Link>
         </div>
         <span className="leadname">{">"} </span>
-        <span>テーブル・机</span>
+        <span>{firstLevelName}</span>
         <span className="leadname">{">"} </span>
-        <span>ダイニングテーブルセット【通販】</span>
+        <span>{categoryName}</span>
       </div>
     </Fragment>
   );

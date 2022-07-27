@@ -3,19 +3,42 @@ import "./product.styles.css";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import GoodsItems from "../../components/goodsItems";
+import { useLocation } from "react-router-dom";
 
 //创建一个context
 export const Context = createContext([]);
 
 const Product2 = () => {
   const [goodslist, setGoodsList] = useState([]);
+  const categoryLocation1 = useLocation().state.goodsCategoryId;
+  const { goodsCategoryId } = categoryLocation1;
 
   //获取所有内容,get
   useEffect(() => {
+    fetch(`${"http://localhost:8080/newLists"}/${goodsCategoryId}`, {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setGoodsList(data);
+      });
+  });
+
+  const deleteTodo = (goodsCategoryId) => {
+    axios
+      .delete(`${"http://localhost:8080/newLists"}/${goodsCategoryId}`)
+      .then((response) => {
+        setGoodsList(response.data);
+      });
+  };
+
+  console.log(goodsCategoryId);
+  /*useEffect(() => {
     axios
       .get("http://localhost:8080/newLists")
       .then((response) => setGoodsList(response.data.data));
   }, []);
+*/
 
   //count
   let counter = 0;

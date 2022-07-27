@@ -43,14 +43,14 @@ const Navigation = () => {
                         <label className="checkbox">
                           <input type="checkbox" />
                         </label>
-                        <Link
+                        <ul
                           className="nav-link"
                           to="/subHome1"
                           style={{ textDecoration: "none" }}
                         >
                           {" "}
                           無段階リクライ(4)
-                        </Link>
+                        </ul>
                       </div>
                     </ul>
                     <ul className="g-lineGrid-item">
@@ -58,14 +58,14 @@ const Navigation = () => {
                         <label className="checkbox">
                           <input type="checkbox" />
                         </label>
-                        <Link
+                        <ul
                           className="nav-link"
                           to="/subHome1"
                           style={{ textDecoration: "none" }}
                         >
                           {" "}
                           おっとまん付き(6)
-                        </Link>
+                        </ul>
                       </div>
                     </ul>
                   </div>
@@ -79,14 +79,14 @@ const Navigation = () => {
                         <label className="checkbox">
                           <input type="checkbox" />
                         </label>
-                        <Link
+                        <ul
                           className="nav-link"
                           to="/subHome1"
                           style={{ textDecoration: "none" }}
                         >
                           {" "}
                           ポケットコイル (2)
-                        </Link>
+                        </ul>
                       </div>
                     </ul>
                   </div>
@@ -100,14 +100,14 @@ const Navigation = () => {
                         <label className="checkbox">
                           <input type="checkbox" />
                         </label>
-                        <Link
+                        <ul
                           className="nav-link"
                           to="/subHome1"
                           style={{ textDecoration: "none" }}
                         >
                           {" "}
                           座面普通 (7)
-                        </Link>
+                        </ul>
                       </div>
                     </ul>
                     <ul className="g-lineGrid-item">
@@ -115,14 +115,14 @@ const Navigation = () => {
                         <label className="checkbox">
                           <input type="checkbox" />
                         </label>
-                        <Link
+                        <ul
                           className="nav-link"
                           to="/subHome1"
                           style={{ textDecoration: "none" }}
                         >
                           {" "}
                           座面固め(2)
-                        </Link>
+                        </ul>
                       </div>
                     </ul>
                   </div>

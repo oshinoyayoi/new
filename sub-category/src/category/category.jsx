@@ -2,6 +2,7 @@ import "./category.styles.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import MenuItem from "./components/MenuItems";
+import { Outlet } from "react-router-dom";
 
 function Category() {
   const [categories, setCategories] = useState([]);
@@ -25,6 +26,7 @@ function Category() {
           </ul>
         </div>
       </div>
+      <Outlet />
     </nav>
   );
 }
