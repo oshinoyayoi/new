@@ -32,7 +32,6 @@ const Product2 = () => {
       });
   };
 
-  console.log(goodsCategoryId);
   /*useEffect(() => {
     axios
       .get("http://localhost:8080/newLists")

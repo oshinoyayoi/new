@@ -3,7 +3,7 @@ import Category from "../../category/category";
 import { Outlet } from "react-router-dom";
 import Product from "../../components/product-list/product";
 import { Fragment } from "react";
-import Navigation from "../../components/product-list/navigation/navigation.component";
+
 import Lead from "../../components/product-list/navigation/lead.component";
 
 const SubHome = () => {
@@ -12,7 +12,6 @@ const SubHome = () => {
       <div className="subCategoryHome">
         <Category />
         <Lead />
-        <Navigation />
         <Introduction />
         <Product />
       </div>
