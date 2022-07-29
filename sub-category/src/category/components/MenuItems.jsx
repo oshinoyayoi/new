@@ -1,8 +1,9 @@
 import SubMenu from "./subMenu.components";
 import "./MenuItems.styles.css";
 
-const MenuItem = ({ Item }) => {
+const MenuItem = ({ Item, secondCategoryName }) => {
   const { categoryName, subList, categoryImage } = Item;
+
   return (
     <div className="first-level-categories">
       <div className="first-category-head">{categoryName}</div>
@@ -18,6 +19,7 @@ const MenuItem = ({ Item }) => {
                   key={sub.categoryId}
                   sub={sub}
                   firstLevelName={categoryName}
+                  secondCategoryName={secondCategoryName}
                 />
               );
             })}

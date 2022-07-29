@@ -7,6 +7,14 @@ const Home = () => {
     <Routes>
       <Route path="/" element={<Category />} />
       <Route path="subhome/:categoryId" element={<SubHome />} />
+      <Route
+        path="subhome/:firstLevelName/:categoryName/:categoryId"
+        element={<SubHome />}
+      />
+      <Route
+        path="subhome/:firstLevelName/:categoryId/:categoryName"
+        element={<SubHome />}
+      />
     </Routes>
   );
 };

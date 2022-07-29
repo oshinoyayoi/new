@@ -1,11 +1,23 @@
-const CategoryNames = ({ Item }) => {
+import { Link } from "react-router-dom";
+
+const CategoryNames = ({
+  Item,
+  parentId,
+  firstLevelName,
+  secondCategoryName,
+}) => {
   const { categoryName, subNumsOfGoods } = Item;
+  console.log(secondCategoryName);
   return (
     <div className="a-colAndColname">
       <div className="a-colNames">
-        {categoryName}({subNumsOfGoods})
+        <Link
+          className="toSubCategoryList"
+          to={`/subHome/${firstLevelName}/${categoryName}/${parentId}`}
+        >
+          {categoryName}({subNumsOfGoods})
+        </Link>
       </div>
-      <ul className="category-List"></ul>
     </div>
   );
 };

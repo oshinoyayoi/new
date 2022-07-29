@@ -68,11 +68,26 @@
 .g-siderbar .colname-select .a-back {
   margin-top: 10px;
 }
-.g-siderbar .colname-select .a-back .p-condition-btns {
+.g-siderbar .colname-select .a-back .p-clear-btns {
   text-align: center;
   display: block;
 }
-.g-siderbar .colname-select .a-back .p-condition-btns .clear-btn {
+.g-siderbar .colname-select .a-back .p-clear-btns .clear-btn {
+  font-size: 1.6rem;
+  line-height: 1.5;
+  font-weight: normal;
+  display: inline-flex;
+  padding: 0;
+  transition: background-color 0.2s;
+  vertical-align: middle;
+  border: 1px solid #cecece;
+  border-radius: 4px;
+  background-color: rgb(231, 231, 231);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.g-siderbar .colname-select .a-back .p-clear-btns .clear-btn-active {
   font-size: 1.6rem;
   line-height: 1.5;
   font-weight: normal;

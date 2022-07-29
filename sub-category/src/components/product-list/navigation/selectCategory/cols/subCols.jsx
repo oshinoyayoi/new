@@ -13,8 +13,12 @@ const SubCols = ({ cols, value, filteredResults, setFilteredResults }) => {
   return (
     <div>
       <div className="subCategory-list">
-        <div onChange={changeFilterListHandler} className="checkbox">
-          <input type="checkbox" />
+        <div className="checkbox">
+          <input
+            type="checkbox"
+            onChange={changeFilterListHandler}
+            checked={filteredResults.includes(cols)}
+          />
           {cols}
         </div>
         <div className="num">{value}</div>

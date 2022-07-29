@@ -54,10 +54,25 @@
     margin-top: 10px;
     .a-back {
       margin-top: 10px;
-      .p-condition-btns {
+      .p-clear-btns {
         text-align: center;
         display: block;
         .clear-btn {
+          font-size: 1.6rem;
+          line-height: 1.5;
+          font-weight: normal;
+          display: inline-flex;
+          padding: 0;
+          transition: background-color 0.2s;
+          vertical-align: middle;
+          border: 1px solid #cecece;
+          border-radius: 4px;
+          background-color: rgb(231, 231, 231);
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+        }
+        .clear-btn-active {
           font-size: 1.6rem;
           line-height: 1.5;
           font-weight: normal;

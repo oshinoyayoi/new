@@ -3,27 +3,54 @@ import "./product.styles.css";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import GoodsItems from "./components/goodsItems";
-import { Link, useLocation } from "react-router-dom";
-import SelectCategory from "./navigation/selectCategory/cols/selectCategory";
+import { Link, useLocation, useParams } from "react-router-dom";
 import ColNames from "./navigation/selectCategory/cols/colNames";
+import CategoryNames from "./navigation/selectCategory/cols/categoryNames";
 
 //创建一个context
 export const Context = createContext([]);
 
 const Product = () => {
   const [goodslist, setGoodsList] = useState([]);
-  const categoryLocation1 = useLocation().state;
+
+  const param = useParams();
+  const firstLevelName = param.firstLevelName;
+  const secondCategoryName = param.secondCategoryName;
+  const categoryName = param.categoryName;
+  const goodsCategoryId = parseInt(param.categoryId);
+  /* 
+ const categoryLocation1 = useLocation().state;
   const { goodsCategoryId } = categoryLocation1;
+  */
   const [colList, setColList] = useState([]);
   const [filteredResults, setFilteredResults] = useState([]);
-
+  const [category, setCategory] = useState([]);
+  const [third, setThird] = useState([]);
   //获取所有内容,get
+  console.log(goodsCategoryId);
   useEffect(() => {
     axios
       .post(`${"http://localhost:8080/newLists"}/${goodsCategoryId}`)
       .then((response) => setGoodsList(response.data.data));
   }, [goodsCategoryId]);
   //
+
+  useEffect(() => {
+    axios
+      .post("http://localhost:8080/categoryList", {
+        categoryId: goodsCategoryId,
+        cols: "",
+        pageNum: 1,
+        orderBy: "selling_price",
+        ascOrDesc: "asc",
+      })
+      .then((response) =>
+        response.data.data.thirdLevelList
+          ? setThird(response.data.data.thirdLevelList)
+          : setThird([])
+      );
+  }, [goodsCategoryId]);
+
   useEffect(() => {
     axios
       .post("http://localhost:8080/categoryList", {
@@ -36,26 +63,27 @@ const Product = () => {
       .then((response) => setColList(response.data.data.colNameAndCountCol));
   }, [goodsCategoryId]);
 
-  /*
-  const getGoodsList = () => {
-    // setStateCategoryName(linkCategoryName);
-    // console.log(stateCategoryName);
+  useEffect(() => {
     axios
       .post("http://localhost:8080/categoryList", {
         categoryId: goodsCategoryId,
-        cols: filteredResults,
+        cols: "",
         pageNum: 1,
         orderBy: "selling_price",
         ascOrDesc: "asc",
       })
-      .then((response) => {
-        setColList(response.data.data.colNameAndCountCol);
-        setGoodsList(response.data.data.voList);
-      });
+      .then((response) =>
+        response.data.data.countAndParentId
+          ? setCategory(response.data.data.countAndParentId)
+          : setCategory([])
+      );
+  }, [goodsCategoryId]);
+
+  //清空col
+  const clearAllDetails = () => {
+    setFilteredResults([]);
   };
 
-  useEffect(getGoodsList, [goodsCategoryId, filteredResults]);
-*/
   //count
   let counter = 0;
   for (const obj of goodslist) {
@@ -63,13 +91,7 @@ const Product = () => {
   }
 
   //根据选择的col变更商品
-  /*
   let resultList = goodslist.slice();
-  function filterByCol(resultList, filteredResults) {
-    return resultList.filter((Item) => Item.col === filteredResults);
-  }
-*/
-  /*
   let filter = (condition, resultList) => {
     return resultList.filter((Item) => {
       return Object.keys(condition).every((key) => {
@@ -80,8 +102,7 @@ const Product = () => {
 
   var condition = { col: filteredResults };
   var aa = filter(condition, resultList);
-  console.log(aa);
-*/
+
   function typeChange() {
     //获取select对象
     var myItem = document.getElementById("sel");
@@ -109,7 +130,7 @@ const Product = () => {
   }
 
   //setGoodsList
-  console.log(filteredResults);
+
   return (
     <Fragment>
       <div className="g-siderbar">
@@ -120,7 +141,19 @@ const Product = () => {
           <h3 className="category-title">カテゴリ</h3>
           <div className="p-condition-body">
             <section className="p-condition-item">
-              <SelectCategory />
+              <div>
+                {category.map((Item, index) => {
+                  return (
+                    <CategoryNames
+                      key={index}
+                      Item={Item}
+                      parentId={goodsCategoryId}
+                      firstLevelName={firstLevelName}
+                      secondCategoryName={secondCategoryName}
+                    />
+                  );
+                })}
+              </div>
             </section>
           </div>
         </section>
@@ -138,10 +171,19 @@ const Product = () => {
                     <li>{filteredResults}</li>
                   </ul>
                 </div>
-                <div className="p-condition-btns">
-                  <Link className="clear-all" to="/">
-                    <button className="clear-btn">全条件をクリア</button>
-                  </Link>
+                <div className="p-clear-btns">
+                  <button
+                    className={
+                      filteredResults.length < 1
+                        ? "clear-btn"
+                        : "clear-btn-active"
+                    }
+                    onClick={clearAllDetails}
+                    disabled={filteredResults.length < 1}
+                    type="button"
+                  >
+                    <span>全条件をクリア</span>
+                  </button>
                 </div>
               </section>
 
@@ -200,8 +242,10 @@ const Product = () => {
         </div>
 
         <div className="goods-List">
-          {goodslist.map((goods) => {
-            return <GoodsItems key={goods.goodsId} goods={goods} />;
+          {aa.map((goods) => {
+            return (
+              <GoodsItems key={goods.goodsId} goods={goods} third={third} />
+            );
           })}
         </div>
       </div>
