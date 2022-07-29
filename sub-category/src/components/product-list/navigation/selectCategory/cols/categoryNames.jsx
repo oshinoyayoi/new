@@ -7,13 +7,13 @@ const CategoryNames = ({
   secondCategoryName,
 }) => {
   const { categoryName, subNumsOfGoods } = Item;
-  console.log(secondCategoryName);
+  //  console.log(secondCategoryName);
   return (
     <div className="a-colAndColname">
       <div className="a-colNames">
         <Link
           className="toSubCategoryList"
-          to={`/subHome/${firstLevelName}/${categoryName}/${parentId}`}
+          to={`/subHome/${firstLevelName}/2/${parentId}/${categoryName}`}
         >
           {categoryName}({subNumsOfGoods})
         </Link>

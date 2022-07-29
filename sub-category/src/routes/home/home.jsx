@@ -12,7 +12,7 @@ const Home = () => {
         element={<SubHome />}
       />
       <Route
-        path="subhome/:firstLevelName/:categoryId/:categoryName"
+        path="subhome/:firstLevelName/2/:categoryId/:categoryName"
         element={<SubHome />}
       />
     </Routes>

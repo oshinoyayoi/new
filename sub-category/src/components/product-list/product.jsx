@@ -12,29 +12,24 @@ export const Context = createContext([]);
 
 const Product = () => {
   const [goodslist, setGoodsList] = useState([]);
-
   const param = useParams();
   const firstLevelName = param.firstLevelName;
   const secondCategoryName = param.secondCategoryName;
   const categoryName = param.categoryName;
   const goodsCategoryId = parseInt(param.categoryId);
-  /* 
- const categoryLocation1 = useLocation().state;
-  const { goodsCategoryId } = categoryLocation1;
-  */
   const [colList, setColList] = useState([]);
   const [filteredResults, setFilteredResults] = useState([]);
   const [category, setCategory] = useState([]);
-  const [third, setThird] = useState([]);
+  //const [third, setThird] = useState([]);
   //获取所有内容,get
-  console.log(goodsCategoryId);
+
   useEffect(() => {
     axios
       .post(`${"http://localhost:8080/newLists"}/${goodsCategoryId}`)
       .then((response) => setGoodsList(response.data.data));
   }, [goodsCategoryId]);
   //
-
+  /*
   useEffect(() => {
     axios
       .post("http://localhost:8080/categoryList", {
@@ -45,12 +40,12 @@ const Product = () => {
         ascOrDesc: "asc",
       })
       .then((response) =>
-        response.data.data.thirdLevelList
-          ? setThird(response.data.data.thirdLevelList)
-          : setThird([])
+        response.data.data.voList
+          ? setGoodsList(response.data.data.voList)
+          : setGoodsList([])
       );
   }, [goodsCategoryId]);
-
+*/
   useEffect(() => {
     axios
       .post("http://localhost:8080/categoryList", {
@@ -99,7 +94,6 @@ const Product = () => {
       });
     });
   };
-
   var condition = { col: filteredResults };
   var aa = filter(condition, resultList);
 
@@ -130,7 +124,20 @@ const Product = () => {
   }
 
   //setGoodsList
+  const changeToThird = () => {
+    let resultList = goodslist.slice();
+    let filter = (condition, resultList) => {
+      return resultList.filter((Item) => {
+        return Object.keys(condition).every((key) => {
+          return String(Item[key]).includes(String(condition[key]).trim());
+        });
+      });
+    };
+    var condition = { categoryId: goodsCategoryId };
+    var aa = filter(condition, resultList);
+  };
 
+  console.log(aa);
   return (
     <Fragment>
       <div className="g-siderbar">
@@ -243,9 +250,7 @@ const Product = () => {
 
         <div className="goods-List">
           {aa.map((goods) => {
-            return (
-              <GoodsItems key={goods.goodsId} goods={goods} third={third} />
-            );
+            return <GoodsItems key={goods.goodsId} goods={goods} />;
           })}
         </div>
       </div>

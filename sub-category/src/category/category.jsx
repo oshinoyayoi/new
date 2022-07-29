@@ -8,6 +8,7 @@ function Category() {
   const [categories, setCategories] = useState([]);
   const param = useParams();
   const secondCategoryName = param.secondCategoryName;
+
   //获取所有内容,get
   useEffect(() => {
     axios
