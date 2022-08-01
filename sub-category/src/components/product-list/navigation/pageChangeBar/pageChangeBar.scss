@@ -1,0 +1,10 @@
+.page-change-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  .previous-page-button {
+    padding-right: 30px;
+  }
+}

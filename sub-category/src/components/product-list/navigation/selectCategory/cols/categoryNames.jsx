@@ -6,14 +6,14 @@ const CategoryNames = ({
   firstLevelName,
   secondCategoryName,
 }) => {
-  const { categoryName, subNumsOfGoods } = Item;
+  const { categoryName, subNumsOfGoods, categoryId } = Item;
   //  console.log(secondCategoryName);
   return (
     <div className="a-colAndColname">
       <div className="a-colNames">
         <Link
           className="toSubCategoryList"
-          to={`/subHome/${firstLevelName}/2/${parentId}/${categoryName}`}
+          to={`/subHome/${firstLevelName}/${parentId}/${categoryName}/${categoryId}/1`}
         >
           {categoryName}({subNumsOfGoods})
         </Link>

@@ -15,7 +15,7 @@ const SubMenu = ({ sub, firstLevelName, secondCategoryName }) => {
     <div className="subCategory-list">
       <Link
         className="toSubCategory"
-        to={`/subHome/${firstLevelName}/${categoryName}/${categoryId}`}
+        to={`/subHome/${firstLevelName}/${categoryName}/${categoryId}/1`}
       >
         {categoryName}
         {categoryId}

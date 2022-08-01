@@ -6,6 +6,7 @@ import GoodsItems from "./components/goodsItems";
 import { Link, useLocation, useParams } from "react-router-dom";
 import ColNames from "./navigation/selectCategory/cols/colNames";
 import CategoryNames from "./navigation/selectCategory/cols/categoryNames";
+import PageChangeBar from "./navigation/pageChangeBar/pageChangeBar";
 
 //创建一个context
 export const Context = createContext([]);
@@ -16,6 +17,8 @@ const Product = () => {
   const firstLevelName = param.firstLevelName;
   const secondCategoryName = param.secondCategoryName;
   const categoryName = param.categoryName;
+  const categoryId = param.categoryId;
+  const pageNow = parseInt(param.pageNum);
   const goodsCategoryId = parseInt(param.categoryId);
   const [colList, setColList] = useState([]);
   const [filteredResults, setFilteredResults] = useState([]);
@@ -27,43 +30,28 @@ const Product = () => {
     axios
       .post(`${"http://localhost:8080/newLists"}/${goodsCategoryId}`)
       .then((response) => setGoodsList(response.data.data));
-  }, [goodsCategoryId]);
+  }, [goodsCategoryId, categoryId, categoryName, pageNow]);
+
   //
-  /*
+  console.log(pageNow);
   useEffect(() => {
     axios
       .post("http://localhost:8080/categoryList", {
         categoryId: goodsCategoryId,
         cols: "",
-        pageNum: 1,
-        orderBy: "selling_price",
-        ascOrDesc: "asc",
-      })
-      .then((response) =>
-        response.data.data.voList
-          ? setGoodsList(response.data.data.voList)
-          : setGoodsList([])
-      );
-  }, [goodsCategoryId]);
-*/
-  useEffect(() => {
-    axios
-      .post("http://localhost:8080/categoryList", {
-        categoryId: goodsCategoryId,
-        cols: "",
-        pageNum: 1,
+        pageNum: pageNow,
         orderBy: "selling_price",
         ascOrDesc: "asc",
       })
       .then((response) => setColList(response.data.data.colNameAndCountCol));
-  }, [goodsCategoryId]);
+  }, [goodsCategoryId, pageNow]);
 
   useEffect(() => {
     axios
       .post("http://localhost:8080/categoryList", {
         categoryId: goodsCategoryId,
         cols: "",
-        pageNum: 1,
+        pageNum: pageNow,
         orderBy: "selling_price",
         ascOrDesc: "asc",
       })
@@ -72,13 +60,19 @@ const Product = () => {
           ? setCategory(response.data.data.countAndParentId)
           : setCategory([])
       );
-  }, [goodsCategoryId]);
+  }, [goodsCategoryId, pageNow]);
 
   //清空col
   const clearAllDetails = () => {
     setFilteredResults([]);
   };
-
+  //点x删掉
+  const clearThisDetail = (detail) => {
+    let result = filteredResults.slice();
+    // console.log(detail);
+    result.splice(result.indexOf(detail), 1);
+    setFilteredResults(result);
+  };
   //count
   let counter = 0;
   for (const obj of goodslist) {
@@ -86,6 +80,7 @@ const Product = () => {
   }
 
   //根据选择的col变更商品
+  console.log(goodslist);
   let resultList = goodslist.slice();
   let filter = (condition, resultList) => {
     return resultList.filter((Item) => {
@@ -96,6 +91,7 @@ const Product = () => {
   };
   var condition = { col: filteredResults };
   var aa = filter(condition, resultList);
+  console.log(aa);
 
   function typeChange() {
     //获取select对象
@@ -124,7 +120,7 @@ const Product = () => {
   }
 
   //setGoodsList
-  const changeToThird = () => {
+  /* const changeToThird = () => {
     let resultList = goodslist.slice();
     let filter = (condition, resultList) => {
       return resultList.filter((Item) => {
@@ -136,8 +132,7 @@ const Product = () => {
     var condition = { categoryId: goodsCategoryId };
     var aa = filter(condition, resultList);
   };
-
-  console.log(aa);
+*/
   return (
     <Fragment>
       <div className="g-siderbar">
@@ -175,7 +170,14 @@ const Product = () => {
                 <div className="p-condition-tiem-inner">
                   <h3 className="p-condition-t">現在絞り込んでいる条件</h3>
                   <ul className="g-flow-xs">
-                    <li>{filteredResults}</li>
+                    <li>
+                      <button
+                        className="details-clear-this-button"
+                        onClick={(event) => clearThisDetail()}
+                      >
+                        {filteredResults} ✕
+                      </button>
+                    </li>
                   </ul>
                 </div>
                 <div className="p-clear-btns">
@@ -249,9 +251,21 @@ const Product = () => {
         </div>
 
         <div className="goods-List">
-          {aa.map((goods) => {
-            return <GoodsItems key={goods.goodsId} goods={goods} />;
+          {aa.map((goods, id) => {
+            return <GoodsItems key={id} goods={goods} />;
           })}
+        </div>
+
+        <div className="pageNum">
+          <PageChangeBar
+            pageNow={pageNow}
+            numsOfItems={counter}
+            parentId={goodsCategoryId}
+            categoryId={categoryId}
+            categoryName={categoryName}
+            firstCategoryName={firstLevelName}
+            secondCategoryName={secondCategoryName}
+          />
         </div>
       </div>
     </Fragment>

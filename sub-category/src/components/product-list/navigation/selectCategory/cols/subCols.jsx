@@ -10,6 +10,11 @@ const SubCols = ({ cols, value, filteredResults, setFilteredResults }) => {
     setFilteredResults(result);
   };
 
+  let counter = 0;
+  for (const obj of cols) {
+    if (obj.cols !== "0") counter++;
+  }
+
   return (
     <div>
       <div className="subCategory-list">
@@ -20,6 +25,7 @@ const SubCols = ({ cols, value, filteredResults, setFilteredResults }) => {
             checked={filteredResults.includes(cols)}
           />
           {cols}
+          {counter}
         </div>
         <div className="num">{value}</div>
       </div>

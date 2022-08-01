@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import "./lead.styles.css";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const Lead = () => {
   /*  const categoryLocation = useLocation().state;
@@ -9,6 +9,7 @@ const Lead = () => {
   const param = useParams();
   const categoryName = param.categoryName;
   const firstLevelName = param.firstLevelName;
+  const secondCategoryName = param.secondCategoryName;
   return (
     <Fragment>
       <div className="swiper-container">
@@ -19,6 +20,8 @@ const Lead = () => {
         </div>
         <span className="leadname">{">"} </span>
         <span>{firstLevelName}</span>
+        <span className="leadname">{">"} </span>
+        <span>{secondCategoryName}</span>
         <span className="leadname">{">"} </span>
         <span>{categoryName}</span>
       </div>
