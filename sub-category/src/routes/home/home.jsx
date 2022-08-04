@@ -16,7 +16,7 @@ const Home = () => {
         path="subhome/:firstLevelName/:parentId/:categoryName/:categoryId/:pageNum"
         element={<SubHome />}
       />
-      <Route path="product" element={<ProductDetail />} />
+      <Route path="sku/:goodsId" element={<ProductDetail />} />
     </Routes>
   );
 };

@@ -38,13 +38,7 @@ const PageChangeBar = ({
               <span className="page-num-container-now">{pageNum}</span>
             ) : (
               <Link
-                to={
-                  //   secondCategoryName
-                  //     ? `/subHome/${firstCategoryName}/${parentId}/${categoryName}/${categoryId}/${pageNum}`
-                  `/subHome/${firstCategoryName}/${categoryName}/${categoryId}/${pageNum}`
-                }
-                // state={{ categoryName, firstLevelName, pageNow: pageNum, }}
-                // onClick={(event) => pageChange(pageNum)}
+                to={`/subHome/${firstCategoryName}/${categoryName}/${categoryId}/${pageNum}`}
               >
                 <span className="page-num-container">{pageNum}</span>
               </Link>

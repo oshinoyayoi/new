@@ -1,0 +1,14 @@
+.questionAndAnswer {
+  text-align: center;
+  height: 700px;
+  width: 415px;
+  .title {
+    position: relative;
+    display: flex;
+    left: 35%;
+    .countGoodsId {
+      font-size: large;
+      margin: 0;
+    }
+  }
+}
