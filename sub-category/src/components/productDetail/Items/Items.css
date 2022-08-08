@@ -31,12 +31,9 @@
   flex-direction: row;
   flex-wrap: wrap;
 }
-.backGround .g-layout_body .productImg .selectImg img {
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 5px;
-  width: 100px;
-  height: 100px;
+.backGround .g-layout_body .productImg .bigImg {
+  height: 415px;
+  margin: 0%;
 }
 .backGround .g-layout_body .sku-details {
   padding-right: 0;
@@ -87,8 +84,9 @@
 }
 .backGround .g-layout_sidebar {
   float: right;
-  position: -webkit-sticky;
-  position: sticky;
+  position: fixed;
+  top: 30px;
+  right: 5px;
   height: 800px;
   width: 300px;
   margin-left: 30px;
@@ -119,6 +117,9 @@
 .backGround .g-layout_sidebar .full-cls .p-order-a .postage {
   font-size: 0.9rem;
   color: #808080;
+}
+.backGround .g-layout_sidebar .full-cls .last-price {
+  font-weight: bold;
 }
 .backGround .g-layout_sidebar .addToCartBtn {
   text-align: center;

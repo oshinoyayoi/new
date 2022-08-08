@@ -1,3 +1,4 @@
+import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Category from "../../category/category";
 import ProductDetail from "../../components/productDetail/productDetail";

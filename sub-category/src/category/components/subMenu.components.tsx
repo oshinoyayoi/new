@@ -1,7 +1,15 @@
 import { Link } from "react-router-dom";
+import { MenuItemsProps } from "../category";
+import { MenuProps } from "./MenuItems";
 import "./subMenu.styles.css";
 
-const SubMenu = ({ sub, firstLevelName, secondCategoryName }) => {
+export type SubProps = {
+  sub: MenuItemsProps;
+  firstLevelName?: string;
+  secondCategoryName?: string;
+};
+
+const SubMenu = ({ sub, firstLevelName, secondCategoryName }: SubProps) => {
   const { categoryName, categoryId } = sub;
 
   /*

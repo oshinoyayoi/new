@@ -1,4 +1,16 @@
-const SubCols = ({ cols, value, filteredResults, setFilteredResults }) => {
+export type SubColsProps = {
+  cols: string;
+  value: number;
+  filteredResults: string[];
+  setFilteredResults: React.Dispatch<React.SetStateAction<string[]>>;
+};
+
+const SubCols = ({
+  cols,
+  value,
+  filteredResults,
+  setFilteredResults,
+}: SubColsProps) => {
   const changeFilterListHandler = () => {
     let result = filteredResults.slice();
     if (result.includes(cols)) {
@@ -9,12 +21,12 @@ const SubCols = ({ cols, value, filteredResults, setFilteredResults }) => {
     }
     setFilteredResults(result);
   };
-
+  /*
   let counter = 0;
   for (const obj of cols) {
     if (obj.cols !== "0") counter++;
   }
-
+*/
   return (
     <div>
       <div className="subCategory-list">
@@ -25,7 +37,6 @@ const SubCols = ({ cols, value, filteredResults, setFilteredResults }) => {
             checked={filteredResults.includes(cols)}
           />
           {cols}
-          {counter}
         </div>
         <div className="num">{value}</div>
       </div>

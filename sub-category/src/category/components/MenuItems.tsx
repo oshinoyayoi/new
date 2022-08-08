@@ -1,7 +1,13 @@
 import SubMenu from "./subMenu.components";
 import "./MenuItems.styles.css";
+import { MenuItemsProps } from "../category";
 
-const MenuItem = ({ Item, secondCategoryName }) => {
+export type MenuProps = {
+  Item: MenuItemsProps;
+  secondCategoryName?: string;
+};
+
+const MenuItem = ({ Item, secondCategoryName }: MenuProps) => {
   const { categoryName, subList, categoryImage } = Item;
 
   return (

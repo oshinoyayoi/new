@@ -1,11 +1,53 @@
-import { Fragment } from "react";
+import { Fragment, SetStateAction } from "react";
 import "./Items.css";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
 import "swiper/css";
 import "swiper/css/grid";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css";
+import { ProductDetailProps } from "../productDetail";
+
+type ItemsProps = {
+  items: Props;
+  sizeList: string[];
+  colorList: string[];
+  imgList: string[];
+  size: string;
+  color: string;
+  setSize: React.Dispatch<React.SetStateAction<string>>;
+  setColor: React.Dispatch<React.SetStateAction<string>>;
+  colorNow: string;
+  swiperBigImage: string;
+  skuName: string;
+};
+
+type Props = {
+  skuName: string;
+  color: string;
+  colorImg: string;
+  skuId: number;
+  img1: string;
+  img2: string;
+  img3: string;
+  img4: string;
+  img5: string;
+  catchcopy: string;
+  price: number;
+  point: number;
+  featureIcon1: string;
+  featureIcon2: string;
+  featureIcon3: string;
+  featureIcon4: string;
+  sizeDetail: string;
+  material: string;
+  weight: string;
+  warranty: string;
+  deliveryMethod: string;
+  deliveryTime: string;
+  deliveryImg: string;
+};
 const Items = ({
   items,
   sizeList,
@@ -16,8 +58,7 @@ const Items = ({
   colorNow,
   setColor,
   swiperBigImage,
-  setSwiperBigImage,
-}) => {
+}: ItemsProps) => {
   const {
     skuName,
     color,
@@ -25,6 +66,9 @@ const Items = ({
     skuId,
     img1,
     img2,
+    img3,
+    img4,
+    img5,
     catchcopy,
     price,
     point,
@@ -41,16 +85,18 @@ const Items = ({
     deliveryImg,
   } = items;
 
-  const selectSize = (event) => {
+  const selectSize = (event: { target: { value: SetStateAction<string> } }) => {
     setSize(event.target.value);
   };
-  const selectColor = (event) => {
+  const selectColor = (event: {
+    target: { value: SetStateAction<string> };
+  }) => {
     setColor(event.target.value);
   };
-  const handleSwiper = (image) => {
+  /* const handleSwiper = (image) => {
     setSwiperBigImage(image);
   };
-
+*/
   return (
     <Fragment>
       <div className="g-layout_head">
@@ -76,19 +122,30 @@ const Items = ({
             <div className="bigImg">
               <img src={img1} alt="imgs" />
             </div>
-            <div className="selectImg">
-              <img src={img2} alt="imgs" />
-            </div>
+
             <Swiper
+              // install Swiper modules
+              modules={[Navigation, Pagination, Scrollbar, A11y]}
               spaceBetween={50}
               slidesPerView={3}
-              onSlideChange={() => console.log("slide change")}
+              navigation
+              pagination={{ clickable: true }}
+              scrollbar={{ draggable: true }}
               onSwiper={(swiper) => console.log(swiper)}
+              onSlideChange={() => console.log("slide change")}
             >
-              <SwiperSlide>Slide 1</SwiperSlide>
-              <SwiperSlide>Slide 2</SwiperSlide>
-              <SwiperSlide>Slide 3</SwiperSlide>
-              <SwiperSlide>Slide 4</SwiperSlide>
+              <SwiperSlide>
+                <img src={img2} alt="imgs" height="100" width="100" />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src={img3} alt="imgs" height="100" width="100" />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src={img4} alt="imgs" height="100" width="100" />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src={img5} alt="imgs" height="100" width="100" />
+              </SwiperSlide>
               ...
             </Swiper>
           </div>
@@ -120,7 +177,7 @@ const Items = ({
                           onChange={selectColor}
                         />
                         <span className="colorImgs">
-                          <img src={colors.colorImg} alt="imgs" />
+                          <img src={colorImg} alt="imgs" />
                         </span>
                       </ul>
                     );
@@ -235,13 +292,11 @@ const Items = ({
                   type="text"
                   name="quantity"
                   defaultValue="1"
-                  size="5"
-                  maxLength="3"
                 />
               </dd>
             </dl>
             <div>
-              <h1>{price}円</h1>
+              <h1 className="last-price">{price}円</h1>
             </div>
 
             <button className="addToCartBtn" id="p-addItem" type="button">

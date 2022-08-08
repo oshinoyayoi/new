@@ -1,6 +1,17 @@
+import { goodsDetailsList } from "../../../product";
 import SubCols from "./subCols";
 
-const ColNames = ({ Item, filteredResults, setFilteredResults }) => {
+export type ColNamesProps = {
+  Item: goodsDetailsList;
+  filteredResults: string[];
+  setFilteredResults: React.Dispatch<React.SetStateAction<string[]>>;
+};
+
+const ColNames = ({
+  Item,
+  filteredResults,
+  setFilteredResults,
+}: ColNamesProps) => {
   const { colNames, cols } = Item;
 
   return (

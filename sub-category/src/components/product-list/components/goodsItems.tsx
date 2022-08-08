@@ -1,7 +1,13 @@
+import React from "react";
 import { Link } from "react-router-dom";
+import { GoodsProps } from "../product";
 import "./goodsItem.styles.css";
 
-const GoodsItems = ({ goods }) => {
+type GoodsItemsProps = {
+  goods: GoodsProps;
+};
+
+const GoodsItems = ({ goods }: GoodsItemsProps) => {
   const { goodsId, goodsName, sellingPrice, goodsCoverImg, colImg } = goods;
 
   return (

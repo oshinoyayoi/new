@@ -1,11 +1,24 @@
 import { Link } from "react-router-dom";
 
+export type CategoryNameProps = {
+  categoryName: string;
+  subNumsOfGoods: number;
+  categoryId: number;
+};
+
+export type CategoryItemsProps = {
+  Item: CategoryNameProps;
+  parentId: number;
+  firstLevelName: string | undefined;
+  secondCategoryName: string | undefined;
+};
+
 const CategoryNames = ({
   Item,
   parentId,
   firstLevelName,
   secondCategoryName,
-}) => {
+}: CategoryItemsProps) => {
   const { categoryName, subNumsOfGoods, categoryId } = Item;
   //  console.log(secondCategoryName);
   return (

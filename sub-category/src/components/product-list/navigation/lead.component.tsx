@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import "./lead.styles.css";
 import { Link, useParams } from "react-router-dom";
+import React from "react";
 
 const Lead = () => {
   /*  const categoryLocation = useLocation().state;

@@ -1,6 +1,12 @@
 import { Fragment } from "react";
 import "./qAndAList.styles.css";
-const QAndAList = ({ qa, setPageNum, pageNum }) => {
+import { QAndA } from "../productDetail";
+
+type QAndAProps = {
+  qa: QAndA;
+};
+
+const QAndAList = ({ qa }: QAndAProps) => {
   const { question, questionDate, answer, answerDate } = qa;
 
   return (

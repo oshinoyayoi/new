@@ -1,5 +1,17 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import "./pageChangeBar.css";
+
+type PageProps = {
+  i: number;
+  pageNow?: number;
+  parentId: number;
+  categoryId?: number;
+  categoryName?: string;
+  firstCategoryName?: string;
+  secondCategoryName?: string;
+  numsOfItems: number;
+};
 
 const PageChangeBar = ({
   pageNow,
@@ -9,7 +21,7 @@ const PageChangeBar = ({
   categoryName,
   firstCategoryName,
   secondCategoryName,
-}) => {
+}: PageProps) => {
   //   console.log(pageNow, numsOfItems);
 
   const pageTotal = Math.ceil(numsOfItems / 10);
@@ -22,9 +34,9 @@ const PageChangeBar = ({
   if (currentPage > pageTotal) {
     currentPage = pageTotal;
   }
-
 */
-  let pageButtonList = [];
+
+  let pageButtonList: number[] = [];
   for (var i = 1; i <= pageTotal; i++) {
     pageButtonList.push(i);
   }

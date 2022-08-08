@@ -1,27 +1,38 @@
-import { createContext, Fragment } from "react";
+import { DetailedHTMLProps, Fragment, OptionHTMLAttributes } from "react";
 import "./product.styles.css";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import GoodsItems from "./components/goodsItems";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import ColNames from "./navigation/selectCategory/cols/colNames";
 import CategoryNames from "./navigation/selectCategory/cols/categoryNames";
 import PageChangeBar from "./navigation/pageChangeBar/pageChangeBar";
 
 //创建一个context
-export const Context = createContext([]);
-
+//export const Context = createContext([]);
+export type GoodsProps = {
+  goodsId: number;
+  goodsName: string;
+  sellingPrice: number;
+  goodsCoverImg: string;
+  colImg: string;
+  goodslist: GoodsProps[];
+};
+export type goodsDetailsList = {
+  colNames: string;
+  cols: { key: number };
+};
 const Product = () => {
-  const [goodslist, setGoodsList] = useState([]);
+  const [goodslist, setGoodsList] = useState<GoodsProps[]>([]);
   const param = useParams();
   const firstLevelName = param.firstLevelName;
   const secondCategoryName = param.secondCategoryName;
   const categoryName = param.categoryName;
-  const categoryId = param.categoryId;
-  const pageNow = parseInt(param.pageNum);
-  const goodsCategoryId = parseInt(param.categoryId);
+  const categoryId = parseInt(param.categoryId as string);
+  const pageNow = parseInt(param.pageNum!);
+  const goodsCategoryId = parseInt(param.categoryId as string);
   const [colList, setColList] = useState([]);
-  const [filteredResults, setFilteredResults] = useState([]);
+  const [filteredResults, setFilteredResults] = useState<string[]>([]);
   const [category, setCategory] = useState([]);
   //const [third, setThird] = useState([]);
   //获取所有内容,get
@@ -67,22 +78,25 @@ const Product = () => {
     setFilteredResults([]);
   };
   //点x删掉
-  const clearThisDetail = (detail) => {
-    let result = filteredResults.slice();
+  const clearThisDetail: (detail: string) => void = (detail) => {
+    let result: string[] = filteredResults.slice();
     // console.log(detail);
     result.splice(result.indexOf(detail), 1);
     setFilteredResults(result);
   };
   //count
-  let counter = 0;
-  for (const obj of goodslist) {
+  let counter = 6;
+  /*for (const obj of goodslist) {
     if (obj.goodsId !== "0") counter++;
   }
-
+*/
   //根据选择的col变更商品
   console.log(goodslist);
   let resultList = goodslist.slice();
-  let filter = (condition, resultList) => {
+  let filter = (
+    condition: { [x: string]: any; col?: string[] },
+    resultList: any[]
+  ) => {
     return resultList.filter((Item) => {
       return Object.keys(condition).every((key) => {
         return String(Item[key]).includes(String(condition[key]).trim());
@@ -95,44 +109,30 @@ const Product = () => {
 
   function typeChange() {
     //获取select对象
-    var myItem = document.getElementById("sel");
+    var myItem = document.getElementById("sel") as HTMLSelectElement | null;
     //获取select中选中的那个option对象,并取得区分的on属性的值
-    var myOption = myItem.options[myItem.selectedIndex].getAttribute("on");
+    var myOption = myItem?.options[myItem.selectedIndex].getAttribute("on");
     //根据获取到的不同属性值，来指定不同事件
     if (myOption === "1") {
-      goodslist.sort(function (a, b) {
+      goodslist.sort(function (a: any, b: any) {
         return a.goodsId - b.goodsId;
       });
       setGoodsList([...goodslist]);
     }
     if (myOption === "2") {
-      goodslist.sort(function (a, b) {
+      goodslist.sort(function (a: any, b: any) {
         return a.sellingPrice - b.sellingPrice;
       });
       setGoodsList([...goodslist]);
     }
     if (myOption === "3") {
-      goodslist.sort(function (a, b) {
+      goodslist.sort(function (a: any, b: any) {
         return b.sellingPrice - a.sellingPrice;
       });
       setGoodsList([...goodslist]);
     }
   }
 
-  //setGoodsList
-  /* const changeToThird = () => {
-    let resultList = goodslist.slice();
-    let filter = (condition, resultList) => {
-      return resultList.filter((Item) => {
-        return Object.keys(condition).every((key) => {
-          return String(Item[key]).includes(String(condition[key]).trim());
-        });
-      });
-    };
-    var condition = { categoryId: goodsCategoryId };
-    var aa = filter(condition, resultList);
-  };
-*/
   return (
     <Fragment>
       <div className="g-siderbar">
@@ -173,7 +173,9 @@ const Product = () => {
                     <li>
                       <button
                         className="details-clear-this-button"
-                        onClick={(event) => clearThisDetail()}
+                        onClick={(event) =>
+                          clearThisDetail(filteredResults as unknown as string)
+                        }
                       >
                         {filteredResults} ✕
                       </button>
@@ -218,16 +220,16 @@ const Product = () => {
       <div className="g-layout-body">
         <div className="count-and-orderby">
           <div className="p-controlbar_total">
-            全<span>{counter}</span>件
+            全<span>6</span>件
           </div>
           <select id="sel" onChange={typeChange} className="orderBy">
-            <option on="1" value="goods_id">
+            <option data-on="1" value="goods_id">
               おすすめ順
             </option>
-            <option on="2" value="selling_price">
+            <option data-on="2" value="selling_price">
               価格の安い順
             </option>
-            <option on="3" value="selling_price">
+            <option data-on="3" value="selling_price">
               価格の高い順
             </option>
           </select>
@@ -265,6 +267,7 @@ const Product = () => {
             categoryName={categoryName}
             firstCategoryName={firstLevelName}
             secondCategoryName={secondCategoryName}
+            i={0}
           />
         </div>
       </div>

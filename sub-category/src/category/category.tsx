@@ -4,8 +4,15 @@ import axios from "axios";
 import MenuItem from "./components/MenuItems";
 import { Outlet, useParams } from "react-router-dom";
 
+export type MenuItemsProps = {
+  categoryName: string;
+  subList: MenuItemsProps[];
+  categoryImage: string;
+  categoryId: number;
+};
+
 function Category() {
-  const [categories, setCategories] = useState([]);
+  const [categories, setCategories] = useState<MenuItemsProps[]>([]);
   const param = useParams();
   const secondCategoryName = param.secondCategoryName;
 
