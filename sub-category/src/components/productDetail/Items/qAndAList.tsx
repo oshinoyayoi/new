@@ -4,18 +4,30 @@ import { QAndA } from "../productDetail";
 
 type QAndAProps = {
   qa: QAndA;
+  setPageNum: React.Dispatch<React.SetStateAction<number>>;
 };
 
-const QAndAList = ({ qa }: QAndAProps) => {
-  const { question, questionDate, answer, answerDate } = qa;
+const QAndAList = ({ qa, setPageNum }: QAndAProps) => {
+  const { question, questionDate, answer, answerDate, great } = qa;
 
   return (
     <Fragment>
       <div className="question">Q. {question}</div>
       <div className="q-date">投稿日 {questionDate}</div>
       <div className="block"></div>
-      <div className="answer">A. {answer}</div>
+      <div className="answer-a">
+        <div className="answer"> A.</div>
+        {answer}
+      </div>
       <div className="a-date">回答日 {answerDate}</div>
+      <div className="great">
+        <link
+          rel="shortcut icon"
+          href="icons8-gratipay.svg"
+          type="image/x-icon"
+        />
+        参考になった ({great}人)
+      </div>
     </Fragment>
   );
 };

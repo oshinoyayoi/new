@@ -111,7 +111,8 @@ const Product = () => {
     //获取select对象
     var myItem = document.getElementById("sel") as HTMLSelectElement | null;
     //获取select中选中的那个option对象,并取得区分的on属性的值
-    var myOption = myItem?.options[myItem.selectedIndex].getAttribute("on");
+    var myOption =
+      myItem?.options[myItem.selectedIndex].getAttribute("data-on");
     //根据获取到的不同属性值，来指定不同事件
     if (myOption === "1") {
       goodslist.sort(function (a: any, b: any) {
