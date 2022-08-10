@@ -1,0 +1,49 @@
+.review-box {
+  box-sizing: border-box;
+  padding: 20px 0;
+  border-bottom: 1px dashed #dbdbdb;
+}
+.review-box .top {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: -10px;
+  margin-left: -10px;
+}
+.review-box .top .stars {
+  margin-left: 10px;
+}
+.review-box .top .name {
+  margin-left: 10px;
+}
+.review-box .top .date {
+  margin-left: 20px;
+}
+.review-box .product-name {
+  word-break: break-all;
+  margin-top: 20px;
+  text-align: left;
+  letter-spacing: 0.5px;
+}
+.review-box .review-tittle {
+  word-break: break-all;
+  font-weight: bold;
+  margin: 10px 0;
+  font-size: 1.4rem;
+  line-height: 1.5;
+}
+.review-box .review {
+  margin: 0;
+  word-break: break-all;
+  font-size: 1rem;
+}
+.review-box .img {
+  margin-top: 15px;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+.review-box .img img {
+  border: 0;
+  height: 112px;
+  width: 84px;
+}/*# sourceMappingURL=review.styles.css.map */

@@ -1,0 +1,50 @@
+.review-box {
+  box-sizing: border-box;
+  padding: 20px 0;
+  border-bottom: 1px dashed #dbdbdb;
+
+  .top {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: -10px;
+    margin-left: -10px;
+    .stars {
+      margin-left: 10px;
+    }
+    .name {
+      margin-left: 10px;
+    }
+    .date {
+      margin-left: 20px;
+    }
+  }
+  .product-name {
+    word-break: break-all;
+    margin-top: 20px;
+    text-align: left;
+    letter-spacing: 0.5px;
+  }
+  .review-tittle {
+    word-break: break-all;
+    font-weight: bold;
+    margin: 10px 0;
+    font-size: 1.4rem;
+    line-height: 1.5;
+  }
+  .review {
+    margin: 0;
+    word-break: break-all;
+    font-size: 1rem;
+  }
+  .img {
+    margin-top: 15px;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    img {
+      border: 0;
+      height: 112px;
+      width: 84px;
+    }
+  }
+}

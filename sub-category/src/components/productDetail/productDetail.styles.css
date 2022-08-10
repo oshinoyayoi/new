@@ -213,6 +213,106 @@
   vertical-align: top;
   width: 100%;
 }
+.g-layou_foot .g-block-sm .questionAndAnswer .review .review-score .p-reviewScore-right .s5 {
+  display: flex;
+}
+.g-layou_foot .g-block-sm .questionAndAnswer .review .review-score .p-reviewScore-right .s5 .a-meter-g-mater-visble {
+  margin-left: 10px;
+  height: 15px;
+  width: 100px;
+  background-color: #c0c0c0;
+  border-radius: 4px;
+}
+.g-layou_foot .g-block-sm .questionAndAnswer .review .review-score .p-reviewScore-right .s5 .a-meter-g-mater-visble .a-meter-bar {
+  border-radius: 4px;
+  box-shadow: inset -2px 0 0 -1px #a4433c, inset 0 0 0 1px #8d3a34;
+  background-color: #eb6157;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  z-index: 1;
+  height: 15px;
+  width: 66px;
+}
+.g-layou_foot .g-block-sm .questionAndAnswer .review .review-score .p-reviewScore-right .s4 {
+  display: flex;
+}
+.g-layou_foot .g-block-sm .questionAndAnswer .review .review-score .p-reviewScore-right .s4 .a-meter-g-mater-visble {
+  margin-left: 10px;
+  height: 15px;
+  width: 100px;
+  background-color: #c0c0c0;
+  border-radius: 4px;
+}
+.g-layou_foot .g-block-sm .questionAndAnswer .review .review-score .p-reviewScore-right .s4 .a-meter-g-mater-visble .a-meter-bar {
+  border-radius: 4px;
+  box-shadow: inset -2px 0 0 -1px #a4433c, inset 0 0 0 1px #8d3a34;
+  background-color: #eb6157;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  z-index: 1;
+  height: 15px;
+  width: 33px;
+}
+.g-layou_foot .g-block-sm .questionAndAnswer .review .review-score .p-reviewScore-right .s3 {
+  display: flex;
+}
+.g-layou_foot .g-block-sm .questionAndAnswer .review .review-score .p-reviewScore-right .s3 .a-meter-g-mater-visble {
+  margin-left: 10px;
+  height: 15px;
+  width: 100px;
+  background-color: #c0c0c0;
+  border-radius: 4px;
+}
+.g-layou_foot .g-block-sm .questionAndAnswer .review .review-score .p-reviewScore-right .s3 .a-meter-g-mater-visble .a-meter-bar {
+  border-radius: 4px;
+  box-shadow: inset -2px 0 0 -1px #a4433c, inset 0 0 0 1px #8d3a34;
+  background-color: #eb6157;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  z-index: 1;
+  height: 15px;
+  width: 0px;
+}
+.g-layou_foot .g-block-sm .questionAndAnswer .review .review-score .p-reviewScore-right .s2 {
+  display: flex;
+}
+.g-layou_foot .g-block-sm .questionAndAnswer .review .review-score .p-reviewScore-right .s2 .a-meter-g-mater-visble {
+  margin-left: 10px;
+  height: 15px;
+  width: 100px;
+  background-color: #c0c0c0;
+  border-radius: 4px;
+}
+.g-layou_foot .g-block-sm .questionAndAnswer .review .review-score .p-reviewScore-right .s2 .a-meter-g-mater-visble .a-meter-bar {
+  border-radius: 4px;
+  box-shadow: inset -2px 0 0 -1px #a4433c, inset 0 0 0 1px #8d3a34;
+  background-color: #eb6157;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  z-index: 1;
+  height: 15px;
+  width: 0px;
+}
+.g-layou_foot .g-block-sm .questionAndAnswer .review .review-score .p-reviewScore-right .s1 {
+  display: flex;
+}
+.g-layou_foot .g-block-sm .questionAndAnswer .review .review-score .p-reviewScore-right .s1 .a-meter-g-mater-visble {
+  margin-left: 10px;
+  height: 15px;
+  width: 100px;
+  background-color: #c0c0c0;
+  border-radius: 4px;
+}
+.g-layou_foot .g-block-sm .questionAndAnswer .review .review-score .p-reviewScore-right .s1 .a-meter-g-mater-visble .a-meter-bar {
+  border-radius: 4px;
+  box-shadow: inset -2px 0 0 -1px #a4433c, inset 0 0 0 1px #8d3a34;
+  background-color: #eb6157;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  z-index: 1;
+  height: 15px;
+  width: 0px;
+}
 .g-layou_foot .g-block-sm .questionAndAnswer .review .review-score .p-reviw-graph-area-foot {
   text-align: center;
   margin-top: -12px !important;
@@ -220,4 +320,21 @@
 }
 .g-layou_foot .g-block-sm .questionAndAnswer .review .customer-review {
   border-top: 1px solid #dbdbdb;
+  width: 500px;
+}
+.g-layou_foot .g-block-sm .questionAndAnswer .review .customer-review .customer-review-background {
+  width: auto;
+  margin: 10px;
+}
+.g-layou_foot .g-block-sm .questionAndAnswer .review .customer-review .customer-review-background .g-label-brand-g-reviewList_label {
+  color: #009e96;
+  border: 1px solid #009e96;
+  margin-bottom: 15px;
+  font-weight: normal;
+  line-height: 1;
+  display: inline-block;
+  padding: 3px 5px;
+  vertical-align: middle;
+  white-space: nowrap;
+  background-color: #fff;
 }/*# sourceMappingURL=productDetail.styles.css.map */

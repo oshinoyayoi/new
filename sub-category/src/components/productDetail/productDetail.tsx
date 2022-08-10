@@ -1,19 +1,13 @@
-import React, {
-  useState,
-  useEffect,
-  Fragment,
-  useRef,
-  ChangeEvent,
-} from "react";
+import React, { useState, useEffect, Fragment, ChangeEvent } from "react";
 import axios from "axios";
 import Items from "./Items/Items";
-import { useLocation, useParams } from "react-router-dom";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { useParams } from "react-router-dom";
 import "swiper/css";
 import QAndAList from "./Items/qAndAList";
 import "./productDetail.styles.css";
 import Category from "../../category/category";
 import Lead from "../product-list/navigation/lead.component";
+import Review from "./Items/review";
 
 export type QAndA = {
   question: string;
@@ -64,7 +58,8 @@ const ProductDetail = () => {
   const [count, setCount] = useState(0);
   const [orderBy, setOrderBy] = useState("id");
   const [review, setReview] = useState([]);
-  const [stars, setStars] = useState(0);
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
   useEffect(() => {
     axios
       .get(`${"http://localhost:8080/sku"}?goodsId=${goodsId}`, {
@@ -118,11 +113,19 @@ const ProductDetail = () => {
   const pageTotal = Math.ceil(count / 3);
   //总回复数
   var len = review.length;
-  //综合评分
-  /* var total = 0;
-  for (var i = 0; i < len; i++) {
-    total += review.stars[i];
-  }*/
+
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+
   return (
     <Fragment>
       <Category />
@@ -313,21 +316,73 @@ const ProductDetail = () => {
                 <div className="review-score">
                   <div className="p-reviewScore-left">
                     <div className="a-score">総合評価</div>
-                    <div className="avg-score">3.3</div>
+                    <div className="avg-score">4.6</div>
                     ★★★★☆
                     <div className="score-number">({len})</div>
                   </div>
                   <div className="p-reviewScore-right">
-                    <div className="5">★★★★★</div>
-                    <div className="5">★★★★☆</div>
-                    <div className="5">★★★☆☆</div>
-                    <div className="5">★★☆☆☆</div>
-                    <div className="5">★☆☆☆☆</div>
+                    <div className="s5">
+                      <div> ★★★★★</div>
+                      <div
+                        className="a-meter-g-mater-visble"
+                        id="js-mater5"
+                        data-rate="5"
+                      >
+                        {""}
+                        <div className="a-meter-bar">{""}</div>
+                      </div>
+                    </div>
+
+                    <div className="s4">
+                      <div>★★★★☆</div>{" "}
+                      <div
+                        className="a-meter-g-mater-visble"
+                        id="js-mater5"
+                        data-rate="4"
+                      >
+                        {""}
+                        <div className="a-meter-bar">{""}</div>
+                      </div>
+                    </div>
+
+                    <div className="s3">
+                      <div>★★★☆☆</div>{" "}
+                      <div
+                        className="a-meter-g-mater-visble"
+                        id="js-mater5"
+                        data-rate="3"
+                      >
+                        {""}
+                        <div className="a-meter-bar">{""}</div>
+                      </div>
+                    </div>
+
+                    <div className="s2">
+                      <div>★★☆☆☆</div>{" "}
+                      <div
+                        className="a-meter-g-mater-visble"
+                        id="js-mater5"
+                        data-rate="2"
+                      >
+                        {""}
+                        <div className="a-meter-bar">{""}</div>
+                      </div>
+                    </div>
+
+                    <div className="s1">
+                      <div>★☆☆☆☆</div>{" "}
+                      <div
+                        className="a-meter-g-mater-visble"
+                        id="js-mater5"
+                        data-rate="1"
+                      >
+                        {""}
+                        <div className="a-meter-bar">{""}</div>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <p className="p-reviw-graph-area-foot">
-                  109評価 103商品レビュー
-                </p>
+                <p className="p-reviw-graph-area-foot">6評価 6商品レビュー</p>
                 <div id="n-review-btn" className="n-review-btn">
                   <button className="g-btn g-btn-w-sm">
                     <span>商品レビューを書く</span>
@@ -337,9 +392,12 @@ const ProductDetail = () => {
               </div>
               <div className="customer-review">
                 <div className="customer-review-background">
-                  <p className="g-label-brand g-reviewList_label">
+                  <p className="g-label-brand-g-reviewList_label">
                     ピックアップレビュー
                   </p>
+                  {review.map((item, id) => {
+                    return <Review key={id} item={item} />;
+                  })}
                 </div>
               </div>
             </div>
