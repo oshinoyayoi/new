@@ -36,11 +36,20 @@
   word-break: break-all;
   font-size: 1rem;
 }
+.review-box .review .inner-box {
+  width: 480px;
+}
 .review-box .img {
   margin-top: 15px;
   text-align: center;
   display: flex;
   flex-wrap: wrap;
+}
+.review-box .img Button {
+  height: 120px;
+  width: 90px;
+  background-color: #ffffff;
+  border-color: #dddddd;
 }
 .review-box .img img {
   border: 0;

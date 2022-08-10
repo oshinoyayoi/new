@@ -113,7 +113,7 @@ const ProductDetail = () => {
   const pageTotal = Math.ceil(count / 3);
   //总回复数
   var len = review.length;
-
+  //antd
   const showModal = () => {
     setIsModalVisible(true);
   };
@@ -125,6 +125,8 @@ const ProductDetail = () => {
   const handleCancel = () => {
     setIsModalVisible(false);
   };
+
+  //
 
   return (
     <Fragment>
@@ -307,8 +309,15 @@ const ProductDetail = () => {
                   ニトリが不適切と判断した際、後日投稿を削除する場合がございます。詳細はご利用ガイドのニトリ商品Q&Aについてをご確認ください。
                 </li>
               </div>
-              <input className="question-q"></input>
-              <button className="add-question">質問を投稿</button>
+              <input
+                type="textbox"
+                id="ZVQuestionTextarea"
+                className="zv-textbox"
+                placeholder="不明な点を質問（例：この製品には耐久性がありますか？）"
+              />
+              <div className="add-question-background">
+                <button className="add-question">質問を投稿</button>
+              </div>
             </div>
             <div className="review">
               <div className="tittle-r">レビュー</div>
@@ -384,8 +393,8 @@ const ProductDetail = () => {
                 </div>
                 <p className="p-reviw-graph-area-foot">6評価 6商品レビュー</p>
                 <div id="n-review-btn" className="n-review-btn">
-                  <button className="g-btn g-btn-w-sm">
-                    <span>商品レビューを書く</span>
+                  <button className="g-btn-g-btn-w-sm">
+                    <span className="span">商品レビューを書く</span>
                     <i className="g-i g-i-arrow-r" aria-hidden="true"></i>
                   </button>
                 </div>
@@ -396,7 +405,16 @@ const ProductDetail = () => {
                     ピックアップレビュー
                   </p>
                   {review.map((item, id) => {
-                    return <Review key={id} item={item} />;
+                    return (
+                      <Review
+                        key={id}
+                        item={item}
+                        isModalVisible={isModalVisible}
+                        showModal={showModal}
+                        handleOk={handleOk}
+                        handleCancel={handleCancel}
+                      />
+                    );
                   })}
                 </div>
               </div>

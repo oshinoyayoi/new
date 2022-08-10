@@ -1,12 +1,23 @@
 import { Fragment } from "react";
 import { ReviewProps } from "../productDetail";
-import { Button, Modal } from "antd";
+import { Image } from "antd";
 import "./review.styles.css";
+import "antd/dist/antd.css";
 type Reviews = {
   item: ReviewProps;
+  showModal: () => void;
+  handleOk: () => void;
+  handleCancel: () => void;
+  isModalVisible: boolean;
 };
 
-const Review = ({ item }: Reviews) => {
+const Review = ({
+  item,
+  showModal,
+  handleOk,
+  handleCancel,
+  isModalVisible,
+}: Reviews) => {
   const {
     goodsName,
     reviewTitle,
@@ -32,10 +43,11 @@ const Review = ({ item }: Reviews) => {
         </div>
         <p className="product-name">購入商品:{goodsName}</p>
         <p className="review-tittle">{reviewTitle}</p>
-        <p className="review">{review}</p>
+        <p className="review">
+          <div className="inner-box">{review}</div>
+        </p>
         <div className="img">
-          <img src={img1} alt="imgs" />
-          <img src={img2} alt="imgs" />
+          <Image src={img1} />
         </div>
         <div className="great"> 参考になった ({great}人)</div>
       </div>
