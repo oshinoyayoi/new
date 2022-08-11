@@ -44,17 +44,12 @@
     text-align: center;
     display: flex;
     flex-wrap: wrap;
-    Button {
-      height: 120px;
-      width: 90px;
-      background-color: #ffffff;
-      border-color: #dddddd;
-    }
 
     img {
       border: 0;
       height: 112px;
       width: 84px;
+      margin-right: 10px;
     }
   }
 }

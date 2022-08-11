@@ -1,4 +1,10 @@
-import React, { useState, useEffect, Fragment, ChangeEvent } from "react";
+import React, {
+  useState,
+  useEffect,
+  Fragment,
+  ChangeEvent,
+  MouseEventHandler,
+} from "react";
 import axios from "axios";
 import Items from "./Items/Items";
 import { useParams } from "react-router-dom";
@@ -8,6 +14,14 @@ import "./productDetail.styles.css";
 import Category from "../../category/category";
 import Lead from "../product-list/navigation/lead.component";
 import Review from "./Items/review";
+import { Space } from "antd";
+import {
+  LeftOutlined,
+  RightOutlined,
+  CommentOutlined,
+  CalendarOutlined,
+} from "@ant-design/icons";
+import Rating from "@mui/material/Rating";
 
 export type QAndA = {
   question: string;
@@ -30,6 +44,7 @@ export type ProductDetailProps = {
   swiperBigImage: string;
   skuName: string;
 };
+
 export type ReviewProps = {
   goodsName: string;
   reviewTitle: string;
@@ -43,7 +58,61 @@ export type ReviewProps = {
   stars: number;
   great: number;
 };
+
 const ProductDetail = () => {
+  const initialState = {
+    data: [
+      {
+        id: 1,
+        goodsId: 10003,
+        goodsName: "両面使える敷きパッド(NクールWSP n-s)",
+        reviewTitle: "人生最高のシーツ！",
+        review:
+          "今までニトリや他社のシーツを使ってましたが、肌触りや柄は気に入っても、絶対に朝起きたらシーツが動いていて、シーツってそういうものだと思っていました。 でもこのシーツは一晩寝ても一切シワが入らないし、動かない！しかも肌触りもいい！ 若干乾きが遅いかなとは思いますが、朝洗濯すれば夕方までには乾くし、次のシーツも絶対このシリーズにします！ 何気なく買ったけど本当に、本当に最高のシーツです！",
+        customerName: "みったん",
+        date: "2022/05/18",
+        stars: 4,
+        great: 72,
+        img1: "https://p1-a50ece1c.imageflux.jp/c/f=webp:jpeg,w=1024,h=1024,a=0/store/reviewattachmentfile/53/12656/file/9872323fc3a9f41d65df69f6c308f4d2.jpg",
+        img2: "https://p1-a50ece1c.imageflux.jp/c/f=webp:jpeg,w=1024,h=1024,a=0/store/reviewattachmentfile/53/4280/file/057997d402a99d2ba718c718266980dc.jpg",
+        img3: "",
+        img4: "",
+      },
+      {
+        id: 2,
+        goodsId: 10003,
+        goodsName: "両面使える敷きパッド(NクールWSP n-s)",
+        reviewTitle: "予想どうりの",
+        review:
+          "連日の暑さでクタクタになっても布団に転がった瞬間ひんやり気持ちいいです。朝まで続くわけじゃないけど寝る前のひととき、 快適に過ごせます。",
+        customerName: "翔太まる",
+        date: "2022/01/05",
+        stars: 5,
+        great: 72,
+        img1: "https://p1-a50ece1c.imageflux.jp/c/f=webp:jpeg,w=1024,h=1024,a=0/store/reviewattachmentfile/53/5056/file/14fe2e5f6b8ebde642ac9b5941519c84.jpg",
+        img2: "",
+        img3: "",
+        img4: "",
+      },
+      {
+        id: 6,
+        goodsId: 10003,
+        goodsName: "両面使える敷きパッド(NクールWSP n-s)",
+        reviewTitle: "使いやすい。",
+        review:
+          "軽くて乾きやすくて、使いやすいです。夏本当に暑いので、ソファーに掛けて使ったりもしてます。",
+        customerName: "aya",
+        date: "2021/08/08",
+        stars: 5,
+        great: 72,
+        img1: "",
+        img2: "",
+        img3: "",
+        img4: "",
+      },
+    ],
+  };
+
   const [product, setProduct] = useState([]);
   const param = useParams();
   const [colorList, setColorList] = useState([]);
@@ -57,9 +126,10 @@ const ProductDetail = () => {
   const [pageNum, setPageNum] = useState(1);
   const [count, setCount] = useState(0);
   const [orderBy, setOrderBy] = useState("id");
-  const [review, setReview] = useState([]);
+  const [review, setReview] = useState(initialState.data);
   const [isModalVisible, setIsModalVisible] = useState(false);
-
+  const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
+  // const [limitReview, setLimitReview] = useState();
   useEffect(() => {
     axios
       .get(`${"http://localhost:8080/sku"}?goodsId=${goodsId}`, {
@@ -113,7 +183,7 @@ const ProductDetail = () => {
   const pageTotal = Math.ceil(count / 3);
   //总回复数
   var len = review.length;
-  //antd
+  //antd modal
   const showModal = () => {
     setIsModalVisible(true);
   };
@@ -127,6 +197,15 @@ const ProductDetail = () => {
   };
 
   //
+
+  const handleReviewMore = () => {
+    if (count > 3) {
+      setReview([...review]);
+    }
+  };
+
+  console.log();
+  //👇️
 
   return (
     <Fragment>
@@ -157,7 +236,12 @@ const ProductDetail = () => {
         <div className="g-block-sm">
           <div className="product-introduce">
             <i className="fa-solid fa-user"></i>
-            <div className="title">商品説明</div>
+            <div className="title">
+              <Space className="icon">
+                <CalendarOutlined />
+              </Space>
+              商品説明
+            </div>
             <div className="product-mv-backgroud">
               <div className="block">
                 <div className="product-mv">
@@ -245,7 +329,12 @@ const ProductDetail = () => {
 
           <div className="questionAndAnswer">
             <div className="Q&A">
-              <div className="title">商品Q&A</div>
+              <div className="title">
+                <Space className="icon">
+                  <CommentOutlined />
+                </Space>
+                商品Q&A
+              </div>
               <div className="box-a">
                 <div className="countGoodsId">全{count}件</div>
                 <div className="pageChange">
@@ -256,7 +345,11 @@ const ProductDetail = () => {
                       display: pageNum !== 1 ? "inline-block" : "none",
                     }}
                   >
-                    <div className="left">{"<"}</div>
+                    <div className="left">
+                      <Space>
+                        <LeftOutlined />
+                      </Space>
+                    </div>
                   </div>
                   <div className="p_index">
                     ページ
@@ -283,7 +376,12 @@ const ProductDetail = () => {
                       display: pageNum !== pageTotal ? "inline-block" : "none",
                     }}
                   >
-                    <div className="right">{">"}</div>
+                    <div className="right">
+                      {" "}
+                      <Space>
+                        <RightOutlined />
+                      </Space>
+                    </div>
                   </div>
                 </div>
                 <div className="orderBy-block">
@@ -326,12 +424,25 @@ const ProductDetail = () => {
                   <div className="p-reviewScore-left">
                     <div className="a-score">総合評価</div>
                     <div className="avg-score">4.6</div>
-                    ★★★★☆
+                    <Rating
+                      name="half-rating-read"
+                      defaultValue={4.6}
+                      precision={0.1}
+                      readOnly
+                    />
                     <div className="score-number">({len})</div>
                   </div>
                   <div className="p-reviewScore-right">
                     <div className="s5">
-                      <div> ★★★★★</div>
+                      <div>
+                        {" "}
+                        <Rating
+                          name="half-rating-read"
+                          defaultValue={5}
+                          precision={0.5}
+                          readOnly
+                        />
+                      </div>
                       <div
                         className="a-meter-g-mater-visble"
                         id="js-mater5"
@@ -343,7 +454,15 @@ const ProductDetail = () => {
                     </div>
 
                     <div className="s4">
-                      <div>★★★★☆</div>{" "}
+                      <div>
+                        {" "}
+                        <Rating
+                          name="half-rating-read"
+                          defaultValue={4}
+                          precision={0.5}
+                          readOnly
+                        />
+                      </div>{" "}
                       <div
                         className="a-meter-g-mater-visble"
                         id="js-mater5"
@@ -355,7 +474,15 @@ const ProductDetail = () => {
                     </div>
 
                     <div className="s3">
-                      <div>★★★☆☆</div>{" "}
+                      <div>
+                        {" "}
+                        <Rating
+                          name="half-rating-read"
+                          defaultValue={3}
+                          precision={0.5}
+                          readOnly
+                        />
+                      </div>{" "}
                       <div
                         className="a-meter-g-mater-visble"
                         id="js-mater5"
@@ -367,7 +494,15 @@ const ProductDetail = () => {
                     </div>
 
                     <div className="s2">
-                      <div>★★☆☆☆</div>{" "}
+                      <div>
+                        {" "}
+                        <Rating
+                          name="half-rating-read"
+                          defaultValue={2}
+                          precision={0.5}
+                          readOnly
+                        />
+                      </div>{" "}
                       <div
                         className="a-meter-g-mater-visble"
                         id="js-mater5"
@@ -379,7 +514,15 @@ const ProductDetail = () => {
                     </div>
 
                     <div className="s1">
-                      <div>★☆☆☆☆</div>{" "}
+                      <div>
+                        {" "}
+                        <Rating
+                          name="half-rating-read"
+                          defaultValue={1}
+                          precision={0.5}
+                          readOnly
+                        />
+                      </div>{" "}
                       <div
                         className="a-meter-g-mater-visble"
                         id="js-mater5"
@@ -413,9 +556,15 @@ const ProductDetail = () => {
                         showModal={showModal}
                         handleOk={handleOk}
                         handleCancel={handleCancel}
+                        thumbsSwiper={thumbsSwiper}
+                        setThumbsSwiper={setThumbsSwiper}
                       />
                     );
                   })}
+                  <div className="reviewMore"></div>
+                  <button onClick={() => handleReviewMore()}>
+                    レビューをもっと見る(3/{count})
+                  </button>
                 </div>
               </div>
             </div>

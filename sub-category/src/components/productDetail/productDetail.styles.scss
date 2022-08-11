@@ -16,6 +16,11 @@
       .title {
         font-size: larger;
         font-weight: bold;
+        .icon {
+          margin-right: 8px;
+          margin-left: 20px;
+          color: #009e96;
+        }
       }
       .product-mv-backgroud {
         border-style: dotted;
@@ -99,6 +104,10 @@
         left: 42%;
         font-size: larger;
         font-weight: bold;
+        .icon {
+          margin-right: 8px;
+          color: #009e96;
+        }
       }
       .box-a {
         margin-top: 15px;

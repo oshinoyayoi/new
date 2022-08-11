@@ -18,6 +18,11 @@
   font-size: larger;
   font-weight: bold;
 }
+.g-layou_foot .g-block-sm .product-introduce .title .icon {
+  margin-right: 8px;
+  margin-left: 20px;
+  color: #009e96;
+}
 .g-layou_foot .g-block-sm .product-introduce .product-mv-backgroud {
   border-style: dotted;
   border-width: 0.1ch;
@@ -92,6 +97,10 @@
   left: 42%;
   font-size: larger;
   font-weight: bold;
+}
+.g-layou_foot .g-block-sm .questionAndAnswer .title .icon {
+  margin-right: 8px;
+  color: #009e96;
 }
 .g-layou_foot .g-block-sm .questionAndAnswer .box-a {
   margin-top: 15px;

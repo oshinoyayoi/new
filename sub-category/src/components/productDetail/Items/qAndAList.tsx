@@ -1,6 +1,8 @@
 import { Fragment } from "react";
 import "./qAndAList.styles.css";
 import { QAndA } from "../productDetail";
+import { HeartOutlined, LikeOutlined } from "@ant-design/icons";
+import { Space } from "antd";
 
 type QAndAProps = {
   qa: QAndA;
@@ -26,6 +28,9 @@ const QAndAList = ({ qa, setPageNum }: QAndAProps) => {
           href="icons8-gratipay.svg"
           type="image/x-icon"
         />
+        <Space>
+          <LikeOutlined />
+        </Space>{" "}
         参考になった ({great}人)
       </div>
     </Fragment>

@@ -8,7 +8,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css";
 import { ProductDetailProps } from "../productDetail";
-
+import Rating from "@mui/material/Rating";
 type ItemsProps = {
   items: Props;
   sizeList: string[];
@@ -105,7 +105,15 @@ const Items = ({
           <span className="skuId">商品コード {skuId}</span>
         </div>
         <p className="product-reviews">
-          <span>★★★☆☆</span>
+          <span>
+            {" "}
+            <Rating
+              name="half-rating-read"
+              defaultValue={4.5}
+              precision={0.5}
+              readOnly
+            />
+          </span>
           <span>(102)</span>
         </p>
         <p className="labelSet">
