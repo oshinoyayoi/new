@@ -27,13 +27,10 @@
   margin: 0;
   padding: 0;
   max-width: 415px;
+  height: 540px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-}
-.backGround .g-layout_body .productImg .bigImg {
-  height: 415px;
-  margin: 0%;
 }
 .backGround .g-layout_body .sku-details {
   padding-right: 0;
@@ -56,6 +53,9 @@
   max-width: 435px;
   margin-top: 10px;
   margin-bottom: 10px;
+}
+.backGround .g-layout_body .sku-details .colorImgs {
+  border-radius: 1rem;
 }
 .backGround .g-layout_body .sku-details .icons img {
   height: 60px;

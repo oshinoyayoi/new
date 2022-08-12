@@ -377,6 +377,29 @@
   white-space: nowrap;
   background-color: #fff;
 }
+.g-layou_foot .g-block-sm .questionAndAnswer .review .customer-review .customer-review-background .reviewMore {
+  margin-top: 20px;
+  text-align: center !important;
+  margin-bottom: 20px;
+}
+.g-layou_foot .g-block-sm .questionAndAnswer .review .customer-review .customer-review-background .reviewMore .button-background {
+  display: flex;
+}
+.g-layou_foot .g-block-sm .questionAndAnswer .review .customer-review .customer-review-background .reviewMore .button-background .button {
+  border-color: #fff;
+  font-family: sans-serif;
+  overflow-x: hidden;
+  height: 100%;
+  margin: 0;
+  color: #333;
+  background-color: #fff;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+       text-size-adjust: 100%;
+}
+.g-layou_foot .g-block-sm .questionAndAnswer .review .customer-review .customer-review-background .reviewMore-none {
+  display: none;
+}
 .g-layou_foot .g-block-sm .questionAndAnswer .review .n-review-btn {
   text-align: center;
   padding-bottom: 20px;

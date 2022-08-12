@@ -4,6 +4,7 @@ import React, {
   Fragment,
   ChangeEvent,
   MouseEventHandler,
+  useRef,
 } from "react";
 import axios from "axios";
 import Items from "./Items/Items";
@@ -20,9 +21,10 @@ import {
   RightOutlined,
   CommentOutlined,
   CalendarOutlined,
+  DownOutlined,
 } from "@ant-design/icons";
 import Rating from "@mui/material/Rating";
-
+import { parse, stringify, toJSON, fromJSON } from "flatted";
 export type QAndA = {
   question: string;
   questionDate: string;
@@ -46,6 +48,7 @@ export type ProductDetailProps = {
 };
 
 export type ReviewProps = {
+  id: number;
   goodsName: string;
   reviewTitle: string;
   review: string;
@@ -117,7 +120,7 @@ const ProductDetail = () => {
   const param = useParams();
   const [colorList, setColorList] = useState([]);
   const [sizeList, setSizeList] = useState([]);
-  const [imgList, setImgList] = useState([]);
+
   const goodsId = param.goodsId;
   const [color, setColor] = useState("");
   const [size, setSize] = useState("");
@@ -127,9 +130,11 @@ const ProductDetail = () => {
   const [count, setCount] = useState(0);
   const [orderBy, setOrderBy] = useState("id");
   const [review, setReview] = useState(initialState.data);
-  const [isModalVisible, setIsModalVisible] = useState(false);
+  const questionRef = useRef<HTMLInputElement>(null);
+  const questionDateRef = useRef(null);
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
-  // const [limitReview, setLimitReview] = useState();
+  const [reviewLength, setReviewLength] = useState(4);
+  const { parse, stringify, toJSON, fromJSON } = require("flatted");
   useEffect(() => {
     axios
       .get(`${"http://localhost:8080/sku"}?goodsId=${goodsId}`, {
@@ -142,7 +147,6 @@ const ProductDetail = () => {
         setProduct(response.data.data.voList);
         setSizeList(response.data.data.sizeList);
         setColorList(response.data.data.colorList);
-        setImgList(response.data.data.voList.images);
       });
   }, [goodsId, size, color]);
 
@@ -156,6 +160,22 @@ const ProductDetail = () => {
         setCount(response.data.data.count);
       });
   }, [pageNum, goodsId, orderBy]);
+  //add question
+  const d: Date = new Date();
+  let date = d.toLocaleDateString();
+  console.log(date);
+
+  function addQuestion() {
+    axios
+      .post("http://localhost:8080/qAndA/insert", {
+        goods_id: goodsId,
+        question: questionRef.current!.value,
+        question_date: date,
+      })
+      .then((response) => {
+        setQAndAList(response.data);
+      });
+  }
 
   useEffect(() => {
     axios
@@ -184,27 +204,16 @@ const ProductDetail = () => {
   //总回复数
   var len = review.length;
   //antd modal
-  const showModal = () => {
-    setIsModalVisible(true);
-  };
-
-  const handleOk = () => {
-    setIsModalVisible(false);
-  };
-
-  const handleCancel = () => {
-    setIsModalVisible(false);
-  };
 
   //
 
   const handleReviewMore = () => {
     if (count > 3) {
-      setReview([...review]);
+      setReviewLength(count + 1);
+      /* setReview([...review]);*/
     }
   };
 
-  console.log();
   //👇️
 
   return (
@@ -219,7 +228,6 @@ const ProductDetail = () => {
               items={items}
               sizeList={sizeList}
               colorList={colorList}
-              imgList={imgList}
               size={size}
               setSize={setSize}
               colorNow={color}
@@ -412,9 +420,12 @@ const ProductDetail = () => {
                 id="ZVQuestionTextarea"
                 className="zv-textbox"
                 placeholder="不明な点を質問（例：この製品には耐久性がありますか？）"
+                ref={questionRef}
               />
               <div className="add-question-background">
-                <button className="add-question">質問を投稿</button>
+                <button className="add-question" onClick={addQuestion}>
+                  質問を投稿
+                </button>
               </div>
             </div>
             <div className="review">
@@ -552,19 +563,33 @@ const ProductDetail = () => {
                       <Review
                         key={id}
                         item={item}
-                        isModalVisible={isModalVisible}
-                        showModal={showModal}
-                        handleOk={handleOk}
-                        handleCancel={handleCancel}
                         thumbsSwiper={thumbsSwiper}
                         setThumbsSwiper={setThumbsSwiper}
+                        reviewLength={reviewLength}
                       />
                     );
                   })}
-                  <div className="reviewMore"></div>
-                  <button onClick={() => handleReviewMore()}>
-                    レビューをもっと見る(3/{count})
-                  </button>
+                  <div
+                    className={
+                      count + 1 !== reviewLength
+                        ? "reviewMore"
+                        : "reviewMore-none"
+                    }
+                  >
+                    <div className="button-background">
+                      <Space>
+                        {" "}
+                        <DownOutlined />{" "}
+                      </Space>
+
+                      <button
+                        className="button"
+                        onClick={() => handleReviewMore()}
+                      >
+                        レビューをもっと見る(3/{count})
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

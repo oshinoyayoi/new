@@ -15,24 +15,19 @@ import Rating from "@mui/material/Rating";
 
 type Reviews = {
   item: ReviewProps;
-  showModal: () => void;
-  handleOk: () => void;
-  handleCancel: () => void;
-  isModalVisible: boolean;
   thumbsSwiper: any;
   setThumbsSwiper: React.Dispatch<any>;
+  reviewLength: number;
 };
 
 const Review = ({
   item,
-  showModal,
-  handleOk,
-  handleCancel,
-  isModalVisible,
   thumbsSwiper,
   setThumbsSwiper,
+  reviewLength,
 }: Reviews) => {
   const {
+    id,
     goodsName,
     reviewTitle,
     review,
@@ -45,13 +40,28 @@ const Review = ({
     stars,
     great,
   } = item;
+
+  const [swiperList, setSwiperList] = useState<string[]>([]);
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const images: string[] | undefined = [img1, img2, img3, img4];
   SwiperCore.use([Pagination, Navigation]);
 
-  const images = [img1, img2, img3, img4];
+  const showModal = () => {
+    setIsModalVisible(true);
+    setSwiperList(images);
+  };
+
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
 
   return (
     <Fragment>
-      <div className="review-box">
+      <div className={id < reviewLength ? "review-box" : "review-box-none"}>
         <div className="top">
           <div className="stars">
             <Rating
@@ -73,8 +83,29 @@ const Review = ({
 
         <div className="img">
           {/*<Image src={img1} />*/}
-          <img src={img1} alt="imgs" onClick={showModal}></img>
-          <img src={img2} alt="imgs" onClick={showModal}></img>
+          <div className="img-list">
+            {/*点击弹窗 */}
+            {images.map((image, index) => {
+              return (
+                <ul
+                  className={
+                    image !== null
+                      ? "product-review-imgList-li"
+                      : "product-review-imgList-li-none"
+                  }
+                  key={index}
+                >
+                  <img
+                    className="product-review-imgList-img"
+                    src={image}
+                    alt="0"
+                    onClick={showModal}
+                  />
+                </ul>
+              );
+            })}
+          </div>
+
           <Modal
             className="modal"
             centered
@@ -87,19 +118,27 @@ const Review = ({
               loop={true}
               spaceBetween={10}
               navigation={true}
-              thumbs={{ swiper: thumbsSwiper }}
+              thumbs={{
+                swiper:
+                  thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
+              }}
               modules={[FreeMode, Navigation, Thumbs]}
               className="mySwiper2"
             >
-              <SwiperSlide>
-                <img src={img1} />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img src={img2} />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img src={img3} />
-              </SwiperSlide>
+              {images.map((image, index) => {
+                return (
+                  <SwiperSlide
+                    className={
+                      image !== null
+                        ? "product-review-imgList-li"
+                        : "product-review-imgList-li-none"
+                    }
+                    key={index}
+                  >
+                    <img src={image} />
+                  </SwiperSlide>
+                );
+              })}
             </Swiper>
             <Swiper
               onSwiper={setThumbsSwiper}
@@ -111,15 +150,20 @@ const Review = ({
               modules={[FreeMode, Navigation, Thumbs]}
               className="mySwiper"
             >
-              <SwiperSlide>
-                <img src={img1} />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img src={img2} />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img src={img3} />
-              </SwiperSlide>
+              {images.map((image, index) => {
+                return (
+                  <SwiperSlide
+                    className={
+                      image !== null
+                        ? "product-review-imgList-li"
+                        : "product-review-imgList-li-none"
+                    }
+                    key={index}
+                  >
+                    <img src={image} />
+                  </SwiperSlide>
+                );
+              })}
             </Swiper>
           </Modal>
         </div>

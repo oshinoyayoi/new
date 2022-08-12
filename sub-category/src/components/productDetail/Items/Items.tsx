@@ -1,19 +1,18 @@
-import { Fragment, SetStateAction } from "react";
+import { Fragment, SetStateAction, useState } from "react";
 import "./Items.css";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
 import "swiper/css";
 import "swiper/css/grid";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css";
-import { ProductDetailProps } from "../productDetail";
 import Rating from "@mui/material/Rating";
+import { FreeMode, Navigation, Thumbs } from "swiper";
+
 type ItemsProps = {
   items: Props;
   sizeList: string[];
   colorList: string[];
-  imgList: string[];
   size: string;
   color: string;
   setSize: React.Dispatch<React.SetStateAction<string>>;
@@ -33,6 +32,8 @@ type Props = {
   img3: string;
   img4: string;
   img5: string;
+  img6: string;
+  img7: string;
   catchcopy: string;
   price: number;
   point: number;
@@ -52,7 +53,6 @@ const Items = ({
   items,
   sizeList,
   colorList,
-  imgList,
   size,
   setSize,
   colorNow,
@@ -69,6 +69,8 @@ const Items = ({
     img3,
     img4,
     img5,
+    img6,
+    img7,
     catchcopy,
     price,
     point,
@@ -84,7 +86,9 @@ const Items = ({
     deliveryTime,
     deliveryImg,
   } = items;
-
+  const [thumbsSwiper, setThumbsSwiper] = useState<any>();
+  const images = [img1, img2, img3, img4, img5, img6, img7];
+  const [imgList, setImgList] = useState<string[]>([]);
   const selectSize = (event: { target: { value: SetStateAction<string> } }) => {
     setSize(event.target.value);
   };
@@ -97,6 +101,7 @@ const Items = ({
     setSwiperBigImage(image);
   };
 */
+
   return (
     <Fragment>
       <div className="g-layout_head">
@@ -127,34 +132,59 @@ const Items = ({
       <div className="backGround">
         <div className="g-layout_body">
           <div className="productImg">
-            <div className="bigImg">
-              <img src={img1} alt="imgs" />
-            </div>
-
             <Swiper
-              // install Swiper modules
-              modules={[Navigation, Pagination, Scrollbar, A11y]}
-              spaceBetween={50}
-              slidesPerView={3}
-              navigation
-              pagination={{ clickable: true }}
-              scrollbar={{ draggable: true }}
-              onSwiper={(swiper) => console.log(swiper)}
-              onSlideChange={() => console.log("slide change")}
+              loop={true}
+              spaceBetween={10}
+              navigation={true}
+              thumbs={{ swiper: thumbsSwiper }}
+              modules={[FreeMode, Navigation, Thumbs]}
+              className="mySwiper2"
             >
-              <SwiperSlide>
-                <img src={img2} alt="imgs" height="100" width="100" />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img src={img3} alt="imgs" height="100" width="100" />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img src={img4} alt="imgs" height="100" width="100" />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img src={img5} alt="imgs" height="100" width="100" />
-              </SwiperSlide>
-              ...
+              {images.map((image, index) => {
+                return (
+                  <SwiperSlide
+                    className={
+                      image !== null
+                        ? "product-review-imgList-li"
+                        : "product-review-imgList-li-none"
+                    }
+                    key={index}
+                  >
+                    <img src={image} />
+                  </SwiperSlide>
+                );
+              })}
+            </Swiper>
+            <Swiper
+              onSwiper={setThumbsSwiper}
+              loop={true}
+              spaceBetween={10}
+              slidesPerView={4}
+              /*
+              slidesPerGroup={4}
+              grid={{
+                rows: 2,
+              }}
+              */
+              freeMode={true}
+              watchSlidesProgress={true}
+              modules={[FreeMode, Navigation, Thumbs]}
+              className="mySwiper"
+            >
+              {images.map((image, index) => {
+                return (
+                  <SwiperSlide
+                    className={
+                      image !== null
+                        ? "product-review-imgList-li"
+                        : "product-review-imgList-li-none"
+                    }
+                    key={index}
+                  >
+                    <img src={image} />
+                  </SwiperSlide>
+                );
+              })}
             </Swiper>
           </div>
 

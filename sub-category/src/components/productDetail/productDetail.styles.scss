@@ -394,6 +394,29 @@
               white-space: nowrap;
               background-color: #fff;
             }
+            .reviewMore {
+              margin-top: 20px;
+              text-align: center !important;
+              margin-bottom: 20px;
+              .button-background {
+                display: flex;
+                .button {
+                  border-color: #fff;
+                  font-family: sans-serif;
+                  overflow-x: hidden;
+                  height: 100%;
+                  margin: 0;
+                  color: #333;
+                  background-color: #fff;
+                  -webkit-text-size-adjust: 100%;
+                  -ms-text-size-adjust: 100%;
+                  text-size-adjust: 100%;
+                }
+              }
+            }
+            .reviewMore-none {
+              display: none;
+            }
           }
         }
         .n-review-btn {

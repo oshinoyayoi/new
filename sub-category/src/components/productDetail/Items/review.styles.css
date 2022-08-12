@@ -45,9 +45,21 @@
   display: flex;
   flex-wrap: wrap;
 }
+.review-box .img .img-list {
+  display: flex;
+}
+.review-box .img .img-list .product-review-imgList-li-none {
+  display: none;
+}
+.review-box .img .modal .product-review-imgList-li-none {
+  display: none;
+}
 .review-box .img img {
   border: 0;
   height: 112px;
   width: 84px;
-  margin-right: 10px;
+}
+
+.review-box-none {
+  display: none;
 }/*# sourceMappingURL=review.styles.css.map */

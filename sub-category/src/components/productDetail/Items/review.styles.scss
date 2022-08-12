@@ -44,12 +44,24 @@
     text-align: center;
     display: flex;
     flex-wrap: wrap;
-
+    .img-list {
+      display: flex;
+      .product-review-imgList-li-none {
+        display: none;
+      }
+    }
+    .modal {
+      .product-review-imgList-li-none {
+        display: none;
+      }
+    }
     img {
       border: 0;
       height: 112px;
       width: 84px;
-      margin-right: 10px;
     }
   }
+}
+.review-box-none {
+  display: none;
 }

@@ -44,7 +44,7 @@ const Product = () => {
   }, [goodsCategoryId, categoryId, categoryName, pageNow]);
 
   //
-  console.log(pageNow);
+
   useEffect(() => {
     axios
       .post("http://localhost:8080/categoryList", {
@@ -91,7 +91,7 @@ const Product = () => {
   }
 */
   //根据选择的col变更商品
-  console.log(goodslist);
+
   let resultList = goodslist.slice();
   let filter = (
     condition: { [x: string]: any; col?: string[] },
