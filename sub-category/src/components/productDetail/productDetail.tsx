@@ -159,22 +159,26 @@ const ProductDetail = () => {
         setQAndAList(response.data.data.list);
         setCount(response.data.data.count);
       });
-  }, [pageNum, goodsId, orderBy]);
+  }, [pageNum, goodsId, orderBy, questionRef]);
+
   //add question
   const d: Date = new Date();
   let date = d.toLocaleDateString();
-  console.log(date);
 
   function addQuestion() {
     axios
       .post("http://localhost:8080/qAndA/insert", {
-        goods_id: goodsId,
+        goodsId: goodsId,
         question: questionRef.current!.value,
-        question_date: date,
+        questionDate: date,
       })
       .then((response) => {
         setQAndAList(response.data);
+      })
+      .then(() => {
+        alert("add question succeed!");
       });
+    questionRef.current!.value = "";
   }
 
   useEffect(() => {
@@ -215,7 +219,7 @@ const ProductDetail = () => {
   };
 
   //👇️
-
+  console.log(qAndAList);
   return (
     <Fragment>
       <Category />
@@ -399,9 +403,13 @@ const ProductDetail = () => {
                   </select>
                 </div>
               </div>
-              {qAndAList.map((qa, id) => {
-                return <QAndAList key={id} qa={qa} setPageNum={setPageNum} />;
-              })}
+              {Array.isArray(qAndAList)
+                ? qAndAList.map((qa, id) => {
+                    return (
+                      <QAndAList key={id} qa={qa} setPageNum={setPageNum} />
+                    );
+                  })
+                : null}
               <div className="countGoodsId">全{count}件</div>
             </div>
             <div className="question">
