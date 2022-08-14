@@ -18,7 +18,7 @@ type ItemsProps = {
   setSize: React.Dispatch<React.SetStateAction<string>>;
   setColor: React.Dispatch<React.SetStateAction<string>>;
   colorNow: string;
-  swiperBigImage: string;
+
   skuName: string;
 };
 
@@ -57,7 +57,6 @@ const Items = ({
   setSize,
   colorNow,
   setColor,
-  swiperBigImage,
 }: ItemsProps) => {
   const {
     skuName,
@@ -88,7 +87,6 @@ const Items = ({
   } = items;
   const [thumbsSwiper, setThumbsSwiper] = useState<any>();
   const images = [img1, img2, img3, img4, img5, img6, img7];
-  const [imgList, setImgList] = useState<string[]>([]);
   const selectSize = (event: { target: { value: SetStateAction<string> } }) => {
     setSize(event.target.value);
   };

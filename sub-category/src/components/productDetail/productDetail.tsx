@@ -3,7 +3,6 @@ import React, {
   useEffect,
   Fragment,
   ChangeEvent,
-  MouseEventHandler,
   useRef,
 } from "react";
 import axios from "axios";
@@ -20,11 +19,11 @@ import {
   LeftOutlined,
   RightOutlined,
   CommentOutlined,
-  CalendarOutlined,
   DownOutlined,
 } from "@ant-design/icons";
 import Rating from "@mui/material/Rating";
-import { parse, stringify, toJSON, fromJSON } from "flatted";
+import ProductIntroduce from "./Items/productIntroduce";
+import WriteReview from "./Items/writeReview";
 export type QAndA = {
   question: string;
   questionDate: string;
@@ -124,17 +123,16 @@ const ProductDetail = () => {
   const goodsId = param.goodsId;
   const [color, setColor] = useState("");
   const [size, setSize] = useState("");
-  const [swiperBigImage, setSwiperBigImage] = useState("");
+
   const [qAndAList, setQAndAList] = useState([]);
   const [pageNum, setPageNum] = useState(1);
   const [count, setCount] = useState(0);
   const [orderBy, setOrderBy] = useState("id");
   const [review, setReview] = useState(initialState.data);
   const questionRef = useRef<HTMLInputElement>(null);
-  const questionDateRef = useRef(null);
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
   const [reviewLength, setReviewLength] = useState(4);
-  const { parse, stringify, toJSON, fromJSON } = require("flatted");
+
   useEffect(() => {
     axios
       .get(`${"http://localhost:8080/sku"}?goodsId=${goodsId}`, {
@@ -171,6 +169,7 @@ const ProductDetail = () => {
         goodsId: goodsId,
         question: questionRef.current!.value,
         questionDate: date,
+        great: 0,
       })
       .then((response) => {
         setQAndAList(response.data);
@@ -192,6 +191,8 @@ const ProductDetail = () => {
   //QAndA排序
   const changeOrderBy = (event: ChangeEvent<HTMLSelectElement>): void => {
     setOrderBy(event.target.value);
+    //点击排序后初始化页数
+    setPageNum(1);
   };
   //QAndA翻页
   const handlePageNum = (i: number) => {
@@ -218,8 +219,16 @@ const ProductDetail = () => {
     }
   };
 
-  //👇️
-  console.log(qAndAList);
+  //👇️startlist
+  let starList = [0, 0, 0, 0, 0];
+  for (var i = 0; i < review.length; i++) {
+    starList[review[i].stars - 1]++;
+  }
+  //反转顺序
+  starList.reverse();
+
+  console.log(product);
+
   return (
     <Fragment>
       <Category />
@@ -236,7 +245,6 @@ const ProductDetail = () => {
               setSize={setSize}
               colorNow={color}
               setColor={setColor}
-              swiperBigImage={swiperBigImage}
               color={""}
               skuName={""}
             />
@@ -246,98 +254,7 @@ const ProductDetail = () => {
       <div className="g-layou_foot">
         <div className="g-hr-g-only-lg"></div>
         <div className="g-block-sm">
-          <div className="product-introduce">
-            <i className="fa-solid fa-user"></i>
-            <div className="title">
-              <Space className="icon">
-                <CalendarOutlined />
-              </Space>
-              商品説明
-            </div>
-            <div className="product-mv-backgroud">
-              <div className="block">
-                <div className="product-mv">
-                  <div id="youtube-video" className="youtube-wrapper">
-                    <div className="youtube">
-                      <iframe
-                        src="//www.youtube.com/embed/bY81jGaNxas?rel=0&amp;enablejsapi=1"
-                        frameBorder="0"
-                        data-gtm-yt-inspected-70="true"
-                        id="176216654"
-                        data-gtm-yt-inspected-61683982_3="true"
-                        data-gtm-yt-inspected-61683982_7="true"
-                        title="ゴムバンド付き敷きパッド　シングルNクールWSP n s WH S7565694 改"
-                      ></iframe>
-                    </div>
-                  </div>
-
-                  <div id="youtube_video" className="youtube-wrapper">
-                    <div className="youtube">
-                      <iframe
-                        src="//www.youtube.com/embed/ZHl1dngSO34?rel=0&amp;enablejsapi=1"
-                        frameBorder="0"
-                        data-gtm-yt-inspected-69="true"
-                        id="719962492"
-                        title="ニトリの接触冷感 Nクールダブルスーパー～一番冷たいが長持ちする【さらさら】極冷感面と肌になじむニット面のリバーシブル～"
-                        data-gtm-yt-inspected-61683982_3="true"
-                        data-gtm-yt-inspected-61683982_7="true"
-                      ></iframe>
-                    </div>
-                  </div>
-                  <span className="text">
-                    <a
-                      className="blue-words"
-                      href="https://www.nitori-net.jp/ec/search/?q=N%E3%82%AF%E3%83%BC%E3%83%AB%E5%AF%9D%E5%85%B7_N%E3%82%AF%E3%83%BC%E3%83%ABWSP%E3%82%82%E3%81%A3%E3%81%A8%E8%A6%8B%E3%82%8B"
-                    >
-                      同じNクールWスーパーの寝具をもっと見る&gt;&gt;
-                    </a>
-                  </span>
-                  <div className="img-1">
-                    <img
-                      src="https://www.nitori-net.jp/ecstatic/include/goods/rich/7/7565681/7565681_01.jpg"
-                      alt="NクールSP　さらもち"
-                    />
-                  </div>
-                  <div className="img-2">
-                    <img
-                      src="https://www.nitori-net.jp/ecstatic/include/goods/rich/7/7565681/7565681_02.jpg"
-                      alt="接触冷感とは？"
-                    />
-                  </div>
-                  <div className="good">
-                    <img
-                      src="https://www.nitori-net.jp/ecstatic/include/goods/rich/7/7565623s/good.jpg"
-                      alt="NクールSP　さらもち"
-                    />
-                  </div>
-                  <p className="a-word-1">「表」と「裏」のリバーシブル</p>
-                  <p className="a-1">
-                    夏は<span>ひんやり長続き「極冷感」</span>素材、春・秋は
-                    <span>さらさら「ニット」</span>
-                    素材を使い分けることで春から秋まで長くお使い頂けます。
-                  </p>
-                  <div className="img-3">
-                    <img
-                      src="https://www.nitori-net.jp/ecstatic/include/goods/rich/7/7565681/7565681_03.jpg"
-                      alt="NクールSP　さらもち"
-                    />
-                  </div>
-                </div>
-                <div className="introduction">
-                  <div className="size">{size}サイズ</div>
-                  <div>【ニトリの接触冷感(Ｎクールダブルスーパー)】表生地</div>
-                  <div>●吸放湿わた(中わた)</div>
-                  <div>●抗菌防臭(表生地)</div>
-                  <div>●制菌加工(表生地)</div>
-                  <div>■組成 </div>
-                  <div>
-                    表生地：ナイロン55％、複合繊維(ナイロン、ポリエチレン)38％、ポリウレタン7％
-                  </div>
-                  <div>不織布：レーヨン50％、ポリエステル50％(PCM加工)</div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <ProductIntroduce size={size} />
 
           <div className="questionAndAnswer">
             <div className="Q&A">
@@ -364,7 +281,7 @@ const ProductDetail = () => {
                     </div>
                   </div>
                   <div className="p_index">
-                    ページ
+                    ページ{pageNum}/{pageTotal}
                     {(() => {
                       const arr = [];
                       for (let i = 1; i <= pageTotal; i++) {
@@ -373,9 +290,7 @@ const ProductDetail = () => {
                             key={i}
                             className={pageNum === i ? "active" : undefined}
                             onClick={() => handlePageNum(i)}
-                          >
-                            {i}/{" "}
-                          </div>
+                          ></div>
                         );
                       }
                       return arr;
@@ -389,7 +304,6 @@ const ProductDetail = () => {
                     }}
                   >
                     <div className="right">
-                      {" "}
                       <Space>
                         <RightOutlined />
                       </Space>
@@ -452,114 +366,38 @@ const ProductDetail = () => {
                     <div className="score-number">({len})</div>
                   </div>
                   <div className="p-reviewScore-right">
-                    <div className="s5">
-                      <div>
-                        {" "}
-                        <Rating
-                          name="half-rating-read"
-                          defaultValue={5}
-                          precision={0.5}
-                          readOnly
-                        />
-                      </div>
-                      <div
-                        className="a-meter-g-mater-visble"
-                        id="js-mater5"
-                        data-rate="5"
-                      >
-                        {""}
-                        <div className="a-meter-bar">{""}</div>
-                      </div>
-                    </div>
-
-                    <div className="s4">
-                      <div>
-                        {" "}
-                        <Rating
-                          name="half-rating-read"
-                          defaultValue={4}
-                          precision={0.5}
-                          readOnly
-                        />
-                      </div>{" "}
-                      <div
-                        className="a-meter-g-mater-visble"
-                        id="js-mater5"
-                        data-rate="4"
-                      >
-                        {""}
-                        <div className="a-meter-bar">{""}</div>
-                      </div>
-                    </div>
-
-                    <div className="s3">
-                      <div>
-                        {" "}
-                        <Rating
-                          name="half-rating-read"
-                          defaultValue={3}
-                          precision={0.5}
-                          readOnly
-                        />
-                      </div>{" "}
-                      <div
-                        className="a-meter-g-mater-visble"
-                        id="js-mater5"
-                        data-rate="3"
-                      >
-                        {""}
-                        <div className="a-meter-bar">{""}</div>
-                      </div>
-                    </div>
-
-                    <div className="s2">
-                      <div>
-                        {" "}
-                        <Rating
-                          name="half-rating-read"
-                          defaultValue={2}
-                          precision={0.5}
-                          readOnly
-                        />
-                      </div>{" "}
-                      <div
-                        className="a-meter-g-mater-visble"
-                        id="js-mater5"
-                        data-rate="2"
-                      >
-                        {""}
-                        <div className="a-meter-bar">{""}</div>
-                      </div>
-                    </div>
-
-                    <div className="s1">
-                      <div>
-                        {" "}
-                        <Rating
-                          name="half-rating-read"
-                          defaultValue={1}
-                          precision={0.5}
-                          readOnly
-                        />
-                      </div>{" "}
-                      <div
-                        className="a-meter-g-mater-visble"
-                        id="js-mater5"
-                        data-rate="1"
-                      >
-                        {""}
-                        <div className="a-meter-bar">{""}</div>
-                      </div>
-                    </div>
+                    {starList.map((star, index) => {
+                      return (
+                        <div key={index} className="review-graph-row-container">
+                          <Rating
+                            name="read-only"
+                            value={5 - index}
+                            size="small"
+                            readOnly
+                          />
+                          <div className="meter-visible-bar">
+                            <div
+                              className="meter-bar"
+                              style={{
+                                width: `${Math.trunc(
+                                  (star / review.length) * 100
+                                )}%`,
+                              }}
+                            ></div>
+                          </div>
+                          <p className="review-score-num">{star}人</p>
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
-                <p className="p-reviw-graph-area-foot">6評価 6商品レビュー</p>
-                <div id="n-review-btn" className="n-review-btn">
-                  <button className="g-btn-g-btn-w-sm">
-                    <span className="span">商品レビューを書く</span>
-                    <i className="g-i g-i-arrow-r" aria-hidden="true"></i>
-                  </button>
-                </div>
+                <p className="p-reviw-graph-area-foot">
+                  {count}評価 {count}商品レビュー
+                </p>
+
+                {product.map((items, index) => {
+                  return <WriteReview key={index} items={items} />;
+                })}
               </div>
               <div className="customer-review">
                 <div className="customer-review-background">

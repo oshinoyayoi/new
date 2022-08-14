@@ -1,0 +1,169 @@
+.n-review-btn {
+  text-align: center;
+  margin-bottom: 10px;
+}
+.n-review-btn .g-btn-g-btn-w-sm {
+  width: auto;
+  min-width: 106px;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  font-weight: normal;
+  display: inline-flex;
+  padding: 0;
+  transition: background-color 0.2s;
+  vertical-align: middle;
+  border: 1px solid #dbdbdb;
+  border-radius: 4px;
+  background-color: #fff;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.n-review-btn .g-btn-g-btn-w-sm .span {
+  padding: 5px 30px !important;
+  color: #009e96;
+}
+
+.ant-modal-content {
+  width: 850px;
+}
+.ant-modal-content .ant-modal-title {
+  font-weight: bolder;
+  font-size: larger;
+}
+.ant-modal-content .ant-modal-body {
+  display: flex;
+  flex-direction: column;
+}
+.ant-modal-content .ant-modal-body .goods-a {
+  margin-top: 20px;
+}
+.ant-modal-content .ant-modal-body .goods-a .intro {
+  display: flex;
+}
+.ant-modal-content .ant-modal-body .goods-a .intro img {
+  height: 160px;
+  width: 160px;
+  margin-right: 20px;
+}
+.ant-modal-content .ant-modal-body .goods-a .intro .bolck-box .skuName {
+  font-size: larger;
+  margin-bottom: 10px;
+}
+.ant-modal-content .ant-modal-body .goods-a .intro .bolck-box .color-size {
+  margin-top: 10px;
+}
+.ant-modal-content .ant-modal-body .write-review {
+  margin-top: 25px;
+  border-top: 1px solid #dbdbdb;
+}
+.ant-modal-content .ant-modal-body .write-review .block {
+  margin-bottom: 38px;
+}
+.ant-modal-content .ant-modal-body .write-review .point {
+  border-bottom: 1px solid #dbdbdb;
+  display: flex;
+}
+.ant-modal-content .ant-modal-body .write-review .point .left {
+  display: flex;
+  flex-direction: row;
+  margin-right: 140px;
+  margin-left: 20px;
+}
+.ant-modal-content .ant-modal-body .write-review .point .left .pingjia {
+  margin-right: 10px;
+  font-weight: bolder;
+}
+.ant-modal-content .ant-modal-body .write-review .point .left .bixu {
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(255, 3, 3);
+  height: 26px;
+  width: 32px;
+}
+.ant-modal-content .ant-modal-body .write-review .point .right {
+  display: flex;
+}
+.ant-modal-content .ant-modal-body .write-review .point .right .low {
+  margin-right: 10px;
+}
+.ant-modal-content .ant-modal-body .write-review .point .right .star {
+  margin-right: 10px;
+}
+.ant-modal-content .ant-modal-body .write-review .user-name {
+  margin-top: 25px;
+  display: flex;
+  margin-bottom: 25px;
+}
+.ant-modal-content .ant-modal-body .write-review .user-name .nick-name {
+  margin-right: 130px;
+  margin-left: 20px;
+  font-weight: bolder;
+}
+.ant-modal-content .ant-modal-body .write-review .user-name .a-10 {
+  color: #a0a0a0;
+}
+.ant-modal-content .ant-modal-body .write-review .user-name .input-nick-name {
+  height: 30px;
+  width: 450px;
+  border: solid 1px #bdc3c7;
+}
+.ant-modal-content .ant-modal-body .write-review .title {
+  margin-top: 25px;
+  display: flex;
+  margin-bottom: 25px;
+}
+.ant-modal-content .ant-modal-body .write-review .title .title-a {
+  margin-right: 158px;
+  margin-left: 20px;
+  font-weight: bolder;
+}
+.ant-modal-content .ant-modal-body .write-review .title .a-20 {
+  color: #a0a0a0;
+}
+.ant-modal-content .ant-modal-body .write-review .title .input-title {
+  height: 30px;
+  width: 450px;
+  border: solid 1px #bdc3c7;
+}
+.ant-modal-content .ant-modal-body .write-review .review {
+  margin-top: 25px;
+  display: flex;
+  margin-bottom: 25px;
+}
+.ant-modal-content .ant-modal-body .write-review .review .review-a {
+  margin-right: 132px;
+  margin-left: 20px;
+  font-weight: bolder;
+}
+.ant-modal-content .ant-modal-body .write-review .review .a-500 {
+  color: #a0a0a0;
+}
+.ant-modal-content .ant-modal-body .write-review .review .input-review {
+  height: 400px;
+  width: 450px;
+  border: solid 1px #bdc3c7;
+}
+.ant-modal-content .ant-modal-body .write-review .review .words {
+  color: #222222;
+}
+.ant-modal-content .ant-modal-body .write-review .photo {
+  margin-top: 25px;
+  display: flex;
+  margin-bottom: 25px;
+}
+.ant-modal-content .ant-modal-body .write-review .photo .photo-a {
+  margin-right: 120px;
+  margin-left: 20px;
+  font-weight: bolder;
+}
+.ant-modal-content .ant-modal-body .write-review .photo .button {
+  color: #ffffff;
+  background-color: #009e96;
+  margin-bottom: 15px;
+}
+.ant-modal-content .ant-modal-body .write-review .photo .input-review {
+  height: 400px;
+  width: 450px;
+  border: solid 1px #bdc3c7;
+}/*# sourceMappingURL=writeReview.styles.css.map */
