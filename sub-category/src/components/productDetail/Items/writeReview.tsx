@@ -8,6 +8,11 @@ import React from "react";
 
 export type WriteProps = {
   items: Props;
+  reviewTitleRef: React.RefObject<HTMLTextAreaElement>;
+  reviewRef: React.RefObject<HTMLTextAreaElement>;
+  customerNameRef: React.RefObject<HTMLTextAreaElement>;
+  goodsNameRef: React.RefObject<HTMLTextAreaElement>;
+  addReview: () => void;
 };
 type Props = {
   skuName: string;
@@ -15,7 +20,14 @@ type Props = {
   img1: string;
   size: string;
 };
-const WriteReview = ({ items }: WriteProps) => {
+const WriteReview = ({
+  items,
+  reviewTitleRef,
+  reviewRef,
+  customerNameRef,
+  goodsNameRef,
+  addReview,
+}: WriteProps) => {
   const { skuName, color, img1, size } = items;
   const [visible, setVisible] = useState(false);
 
@@ -62,9 +74,9 @@ const WriteReview = ({ items }: WriteProps) => {
         <Modal
           title="商品レビュー"
           visible={visible}
-          onOk={hideModal}
+          onOk={addReview}
           onCancel={hideModal}
-          okText="确认"
+          okText="提出"
           cancelText="取消"
           className="modal"
         >
@@ -118,6 +130,7 @@ const WriteReview = ({ items }: WriteProps) => {
                   rows={1}
                   cols={10}
                   maxLength={10}
+                  ref={customerNameRef}
                 ></textarea>
               </div>
             </div>
@@ -132,6 +145,7 @@ const WriteReview = ({ items }: WriteProps) => {
                   rows={1}
                   cols={20}
                   maxLength={20}
+                  ref={reviewTitleRef}
                 ></textarea>
               </div>
             </div>
@@ -147,6 +161,7 @@ const WriteReview = ({ items }: WriteProps) => {
                   cols={80}
                   maxLength={500}
                   onChange={(e) => setCount(e.target.value.length)}
+                  ref={reviewRef}
                 ></textarea>
                 <div id="the-count"></div>
                 <div className="words">

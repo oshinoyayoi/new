@@ -132,7 +132,10 @@ const ProductDetail = () => {
   const questionRef = useRef<HTMLInputElement>(null);
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
   const [reviewLength, setReviewLength] = useState(4);
-
+  const reviewTitleRef = useRef<HTMLTextAreaElement>(null);
+  const reviewRef = useRef<HTMLTextAreaElement>(null);
+  const customerNameRef = useRef<HTMLTextAreaElement>(null);
+  const goodsNameRef = useRef<HTMLTextAreaElement>(null);
   useEffect(() => {
     axios
       .get(`${"http://localhost:8080/sku"}?goodsId=${goodsId}`, {
@@ -186,7 +189,30 @@ const ProductDetail = () => {
       .then((response) => {
         setReview(response.data.data);
       });
-  }, [goodsId]);
+  }, [goodsId, reviewRef]);
+
+  function addReview() {
+    axios
+      .post("http://localhost:8080/skuReview/insert", {
+        goodsId: goodsId,
+        goodsName: "両面使える敷きパッド(NクールWSP n-s)",
+        reviewTitle: reviewTitleRef.current!.value,
+        review: reviewRef.current!.value,
+        customerName: customerNameRef.current!.value,
+        date: date,
+        stars: 5,
+        great: 0,
+      })
+      .then((response) => {
+        setReview(response.data);
+      })
+      .then(() => {
+        alert("add review succeed!");
+      });
+    reviewTitleRef.current!.value = "";
+    reviewRef.current!.value = "";
+    customerNameRef.current!.value = "";
+  }
 
   //QAndA排序
   const changeOrderBy = (event: ChangeEvent<HTMLSelectElement>): void => {
@@ -227,8 +253,6 @@ const ProductDetail = () => {
   //反转顺序
   starList.reverse();
 
-  console.log(product);
-
   return (
     <Fragment>
       <Category />
@@ -245,8 +269,6 @@ const ProductDetail = () => {
               setSize={setSize}
               colorNow={color}
               setColor={setColor}
-              color={""}
-              skuName={""}
             />
           );
         })}
@@ -396,7 +418,17 @@ const ProductDetail = () => {
                 </p>
 
                 {product.map((items, index) => {
-                  return <WriteReview key={index} items={items} />;
+                  return (
+                    <WriteReview
+                      key={index}
+                      items={items}
+                      reviewTitleRef={reviewTitleRef}
+                      reviewRef={reviewRef}
+                      customerNameRef={customerNameRef}
+                      goodsNameRef={goodsNameRef}
+                      addReview={addReview}
+                    />
+                  );
                 })}
               </div>
               <div className="customer-review">
@@ -404,17 +436,20 @@ const ProductDetail = () => {
                   <p className="g-label-brand-g-reviewList_label">
                     ピックアップレビュー
                   </p>
-                  {review.map((item, id) => {
-                    return (
-                      <Review
-                        key={id}
-                        item={item}
-                        thumbsSwiper={thumbsSwiper}
-                        setThumbsSwiper={setThumbsSwiper}
-                        reviewLength={reviewLength}
-                      />
-                    );
-                  })}
+                  {Array.isArray(review)
+                    ? review.map((item, id) => {
+                        return (
+                          <Review
+                            key={id}
+                            item={item}
+                            thumbsSwiper={thumbsSwiper}
+                            setThumbsSwiper={setThumbsSwiper}
+                            reviewLength={reviewLength}
+                          />
+                        );
+                      })
+                    : null}
+                  );
                   <div
                     className={
                       count + 1 !== reviewLength

@@ -14,12 +14,10 @@ type ItemsProps = {
   sizeList: string[];
   colorList: string[];
   size: string;
-  color: string;
+
   setSize: React.Dispatch<React.SetStateAction<string>>;
   setColor: React.Dispatch<React.SetStateAction<string>>;
   colorNow: string;
-
-  skuName: string;
 };
 
 type Props = {
@@ -349,3 +347,4 @@ const Items = ({
 };
 
 export default Items;
+//module.exports={Items};
