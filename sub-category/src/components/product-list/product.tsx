@@ -105,7 +105,6 @@ const Product = () => {
   };
   var condition = { col: filteredResults };
   var aa = filter(condition, resultList);
-  console.log(aa);
 
   function typeChange() {
     //获取select对象

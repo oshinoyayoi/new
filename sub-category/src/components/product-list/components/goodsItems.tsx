@@ -12,14 +12,12 @@ const GoodsItems = ({ goods }: GoodsItemsProps) => {
 
   return (
     <div key={goodsId} className="goods-list">
-      <BrowserRouter>
-        <Link className="toSubCategoryList" to={`/sku/${goodsId}`}>
-          <img alt={goodsName} src={goodsCoverImg} />
-          <div className="godds-name">{goodsName}</div>
-          <h3 className="price">{sellingPrice}円</h3>
-          <li>{colImg}</li>
-        </Link>
-      </BrowserRouter>
+      <Link className="toSubCategoryList" to={`/sku/${goodsId}`}>
+        <img alt={goodsName} src={goodsCoverImg} />
+        <div className="godds-name">{goodsName}</div>
+        <h3 className="price">{sellingPrice}円</h3>
+        <li>{colImg}</li>
+      </Link>
     </div>
   );
 };

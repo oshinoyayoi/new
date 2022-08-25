@@ -94,54 +94,6 @@
   padding: 4px 38px 4px 8px;
   font-size: 13px;
 }
-.g-layou_foot .g-block-sm .questionAndAnswer .question {
-  display: flex;
-  flex-direction: column;
-}
-.g-layou_foot .g-block-sm .questionAndAnswer .question .attention {
-  border-style: dotted;
-  border-width: 0.1ch;
-  border-color: rgb(184, 184, 184);
-  margin-bottom: 10px;
-}
-.g-layou_foot .g-block-sm .questionAndAnswer .question .attention .tittle-a {
-  font-weight: bold;
-  margin: 10px 0;
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #eb6157;
-}
-.g-layou_foot .g-block-sm .questionAndAnswer .question .attention .att-1 {
-  font-size: small;
-  font-weight: 100;
-}
-.g-layou_foot .g-block-sm .questionAndAnswer .question .attention .att-2 {
-  font-size: small;
-  font-weight: 100;
-}
-.g-layou_foot .g-block-sm .questionAndAnswer .question .zv-textbox {
-  font-size: 13px;
-  padding: 10px;
-  border: solid 1px #bdc3c7;
-  box-shadow: inner 0 1px 2px rgba(0, 0, 0, 0.2);
-  border-radius: 3px;
-  width: 100%;
-  margin-bottom: 10px;
-}
-.g-layou_foot .g-block-sm .questionAndAnswer .question .add-question-background {
-  background-color: #fff;
-}
-.g-layou_foot .g-block-sm .questionAndAnswer .question .add-question-background .add-question {
-  border: solid 1px #bdc3c7;
-  padding: 8px 10px;
-  font-weight: normal;
-  text-transform: uppercase;
-  cursor: pointer;
-  border-radius: 3px;
-  font-size: 13px;
-  background: #fff;
-  display: inline-block;
-}
 .g-layou_foot .g-block-sm .questionAndAnswer .review {
   margin-top: 20px;
   height: auto;

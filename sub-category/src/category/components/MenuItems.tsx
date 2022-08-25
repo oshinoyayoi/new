@@ -17,7 +17,9 @@ const MenuItem = ({ Item, secondCategoryName }: MenuProps) => {
         <div className="img">
           <img src={categoryImage} alt="imgs" />
 
-          <span className="category-name">{categoryName}</span>
+          <span className="category-name" data-testid="custom-element">
+            {categoryName}
+          </span>
           <ul className="category-List">
             {subList.map((sub) => {
               return (

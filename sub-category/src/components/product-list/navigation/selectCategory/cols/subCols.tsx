@@ -27,6 +27,7 @@ const SubCols = ({
     if (obj.cols !== "0") counter++;
   }
 */
+
   return (
     <div>
       <div className="subCategory-list">
@@ -35,6 +36,7 @@ const SubCols = ({
             type="checkbox"
             onChange={changeFilterListHandler}
             checked={filteredResults.includes(cols)}
+            data-testid="add-col-input"
           />
           {cols}
         </div>

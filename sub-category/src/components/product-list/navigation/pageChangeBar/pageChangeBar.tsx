@@ -22,8 +22,6 @@ const PageChangeBar = ({
   firstCategoryName,
   secondCategoryName,
 }: PageProps) => {
-  //   console.log(pageNow, numsOfItems);
-
   const pageTotal = Math.ceil(numsOfItems / 10);
 
   /*

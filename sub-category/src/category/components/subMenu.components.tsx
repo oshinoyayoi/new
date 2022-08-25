@@ -1,4 +1,7 @@
-import { Link } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
+import Home from "../../routes/home/home";
+import SubHome from "../../routes/home/subhome.component";
+import SubHome1 from "../../routes/home/subhome1.component ";
 import { MenuItemsProps } from "../category";
 import { MenuProps } from "./MenuItems";
 import "./subMenu.styles.css";
@@ -12,13 +15,6 @@ export type SubProps = {
 const SubMenu = ({ sub, firstLevelName, secondCategoryName }: SubProps) => {
   const { categoryName, categoryId } = sub;
 
-  /*
- state={{
-          categoryName: categoryName,
-          firstLevelName: firstLevelName,
-          goodsCategoryId: categoryId,
-        }}
-*/
   return (
     <div className="subCategory-list">
       <Link

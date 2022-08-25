@@ -1,6 +1,7 @@
+/* eslint-disable jsx-a11y/no-redundant-roles */
 import { Fragment, useState } from "react";
 import "./writeReview.styles.css";
-import { Button, Modal, Space, message, Upload } from "antd";
+import { Button, Modal, message, Upload } from "antd";
 import Box from "@mui/material/Box";
 import Rating from "@mui/material/Rating";
 import "antd/dist/antd.css";
@@ -67,7 +68,7 @@ const WriteReview = ({
   return (
     <Fragment>
       <div id="n-review-btn" className="n-review-btn">
-        <button className="g-btn-g-btn-w-sm" onClick={showModal}>
+        <button className="g-btn-g-btn-w-sm" role="button" onClick={showModal}>
           <span className="span">商品レビューを書く</span>
           <i className="g-i g-i-arrow-r" aria-hidden="true"></i>
         </button>
