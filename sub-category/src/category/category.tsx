@@ -2,8 +2,9 @@ import "./category.styles.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import MenuItem from "./components/MenuItems";
-import { Outlet, useParams } from "react-router-dom";
-
+import { Link, Outlet, useParams } from "react-router-dom";
+import { Pagination, Navigation } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
 export type MenuItemsProps = {
   categoryName: string;
   subList: MenuItemsProps[];
@@ -24,25 +25,31 @@ function Category() {
   }, []);
 
   return (
-    <nav>
-      <div className="category">
-        <div className="button">カテゴリ</div>
-        <div className="content_category">
-          <ul className="a-goodsList">
-            {categories.map((Item) => {
-              return (
-                <MenuItem
-                  key={Item.categoryId}
-                  Item={Item}
-                  secondCategoryName={secondCategoryName}
-                />
-              );
-            })}
-          </ul>
+    <div className="homepage-background">
+      <div className="header">
+        <div className="g-header">
+          <Link className="toSubCategoryList" to={`/shoppingcart`}>
+            <button className="cart">カート</button>
+          </Link>
+        </div>
+        <div className="category">
+          <div className="button">カテゴリ</div>
+          <div className="content_category">
+            <ul className="a-goodsList">
+              {categories.map((Item) => {
+                return (
+                  <MenuItem
+                    key={Item.categoryId}
+                    Item={Item}
+                    secondCategoryName={secondCategoryName}
+                  />
+                );
+              })}
+            </ul>
+          </div>
         </div>
       </div>
-      <Outlet />
-    </nav>
+    </div>
   );
 }
 

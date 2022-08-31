@@ -1,0 +1,18 @@
+.category {
+  position: relative;
+  display: block;
+}
+.main-background {
+  display: flex;
+  .background {
+    display: flex;
+    position: absolute;
+    width: 750px;
+    .main__inner-wrapper {
+      position: relative;
+    }
+  }
+  .buy-latter {
+    position: relative;
+  }
+}

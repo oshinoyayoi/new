@@ -1,0 +1,19 @@
+.category {
+  position: relative;
+  display: block;
+}
+
+.main-background {
+  display: flex;
+}
+.main-background .background {
+  display: flex;
+  position: absolute;
+  width: 750px;
+}
+.main-background .background .main__inner-wrapper {
+  position: relative;
+}
+.main-background .buy-latter {
+  position: relative;
+}/*# sourceMappingURL=shoppingCart.styles.css.map */

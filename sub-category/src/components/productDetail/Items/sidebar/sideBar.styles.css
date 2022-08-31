@@ -1,0 +1,51 @@
+.g-layout_sidebar {
+  float: right;
+  position: fixed;
+  top: 30px;
+  right: 5px;
+  height: 800px;
+  width: 300px;
+  margin-left: 30px;
+}
+.g-layout_sidebar .full-cls {
+  background-color: #f7f7f7;
+}
+.g-layout_sidebar .full-cls .p-order-a {
+  display: inline;
+}
+.g-layout_sidebar .full-cls .p-order-a dd {
+  font-size: 1.2rem;
+  flex: 1;
+  text-align: right;
+  font-weight: bold;
+  border-bottom: 1px solid #dbdbdb;
+}
+.g-layout_sidebar .full-cls .p-order-a .changeProduct {
+  font-size: 0.9rem;
+  color: #808080;
+}
+.g-layout_sidebar .full-cls .p-order-a .g-label-price {
+  font-size: 0.9rem;
+  color: #eb6157;
+  border: 1px solid #eb6157;
+  background-color: #ffffff;
+}
+.g-layout_sidebar .full-cls .p-order-a .postage {
+  font-size: 0.9rem;
+  color: #808080;
+}
+.g-layout_sidebar .full-cls .last-price {
+  font-weight: bold;
+}
+.g-layout_sidebar .full-cls .addToCartBtn {
+  text-align: center;
+  margin: auto;
+  background-color: #eb6157;
+  height: 50px;
+  width: 200px;
+  margin-left: 60px;
+  margin-bottom: 50px;
+}
+.g-layout_sidebar .full-cls .hide {
+  display: none;
+}/*# sourceMappingURL=sideBar.styles.css.map */

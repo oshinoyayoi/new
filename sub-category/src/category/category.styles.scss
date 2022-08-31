@@ -1,53 +1,61 @@
-.category {
-  display: block;
-  position: relative;
-  margin: 0 auto;
-  height: 50px;
-  width: 100%;
-  background-color: #f1f1f1ee;
-  text-align: center;
-  border-style: solid;
-  border-width: 1px;
-  box-sizing: border-box;
-  z-index: 100;
-  .button {
-    display: block;
-    width: 240px;
-    height: 50px;
-    text-align: center;
-    line-height: 50px;
-    color: rgb(14, 13, 13);
-    background-color: #e2dcdc;
-    position: relative;
-    &:hover + .content_category {
+.homepage-background {
+  display: flex;
+  flex-direction: column;
+  .header {
+    position: block;
+    .category {
       display: block;
-    }
-  }
-  .content_category {
-    display: none;
-    height: 350px;
-    width: 1000px;
-    position: absolute;
-    margin: 0;
-    padding: 0;
-    font-size: 14px;
-    line-height: 1.5;
-    min-height: 100%;
-    background-color: #fff;
-    border: 1px solid #dbdbdb;
-    border-top-width: 0;
-    text-align: center;
-    &:hover {
-      display: block;
-    }
-    .a-goodsList {
-      overflow: auto;
-      overflow-x: hidden;
-      margin: 0;
-      padding: 0;
-      width: 240px;
-      height: 100%;
-      list-style: none;
+      position: relative;
+      margin: 0 auto;
+      height: 50px;
+      width: 100%;
+      background-color: #f1f1f1ee;
+      text-align: center;
+      border-style: solid;
+      border-width: 1px;
+      box-sizing: border-box;
+      z-index: 100;
+
+      .button {
+        display: block;
+        width: 240px;
+        height: 50px;
+        text-align: center;
+        line-height: 50px;
+        color: rgb(14, 13, 13);
+        background-color: #e2dcdc;
+        position: relative;
+        &:hover + .content_category {
+          display: block;
+        }
+      }
+      .content_category {
+        display: none;
+        height: 350px;
+        width: 1000px;
+        position: absolute;
+        margin: 0;
+        padding: 0;
+        font-size: 14px;
+        line-height: 1.5;
+        min-height: 100%;
+        background-color: #fff;
+        border: 1px solid #dbdbdb;
+        border-top-width: 0;
+        text-align: center;
+        &:hover {
+          display: block;
+        }
+        .a-goodsList {
+          overflow: auto;
+          overflow-x: hidden;
+          margin: 0;
+          padding: 0;
+          width: 240px;
+          height: 100%;
+          list-style: none;
+        }
+      }
     }
   }
 }

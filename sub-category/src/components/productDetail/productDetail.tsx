@@ -270,6 +270,7 @@ const ProductDetail = () => {
               setSize={setSize}
               colorNow={color}
               setColor={setColor}
+              goodsId={goodsId}
             />
           );
         })}

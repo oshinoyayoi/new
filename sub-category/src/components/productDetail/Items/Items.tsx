@@ -8,16 +8,17 @@ import "swiper/css/navigation";
 import "swiper/css";
 import Rating from "@mui/material/Rating";
 import { FreeMode, Navigation, Thumbs } from "swiper";
+import SideBar from "./sidebar/sidebar";
 
 type ItemsProps = {
   items: Props;
   sizeList: string[];
   colorList: string[];
   size: string;
-
   setSize: React.Dispatch<React.SetStateAction<string>>;
   setColor: React.Dispatch<React.SetStateAction<string>>;
   colorNow: string;
+  goodsId: string | undefined;
 };
 
 type Props = {
@@ -46,6 +47,7 @@ type Props = {
   deliveryMethod: string;
   deliveryTime: string;
   deliveryImg: string;
+  stock: number;
 };
 const Items = ({
   items,
@@ -55,6 +57,7 @@ const Items = ({
   setSize,
   colorNow,
   setColor,
+  goodsId,
 }: ItemsProps) => {
   const {
     skuName,
@@ -82,6 +85,7 @@ const Items = ({
     deliveryMethod,
     deliveryTime,
     deliveryImg,
+    stock,
   } = items;
   const [thumbsSwiper, setThumbsSwiper] = useState<any>();
   const images = [img1, img2, img3, img4, img5, img6, img7];
@@ -278,68 +282,20 @@ const Items = ({
           </div>
         </div>
 
-        <div className="g-layout_sidebar">
-          <div className="full-cls">
-            <div className="p-order">
-              <dl className="p-order-a">
-                <dt>納品方法</dt>
-                <dd>
-                  <span>{deliveryMethod}</span>
-                </dd>
-                <dt>配送目安</dt>
-                <dd>{deliveryTime}</dd>
-                <dt>返品・交換</dt>
-                <dd>
-                  14日間返品可能
-                  <p className="p-order_help">
-                    <a className="g-link" href="/ec/userguide/cancel/">
-                      <span className="changeProduct">返品・交換について</span>
-                      <i className="g-i g-i-info" aria-hidden="true"></i>
-                    </a>
-                  </p>
-                </dd>
-                <dt>送料</dt>
-                <dd>
-                  <span className="g-label-price">有料</span>
-                  <p className="p-order_help">
-                    <a className="g-link" href="/ec/userguide/delivery/">
-                      <span className="postage">送料について</span>
-                      <i className="g-i g-i-info" aria-hidden="true"></i>
-                    </a>
-                  </p>
-                </dd>
-              </dl>
-            </div>
-
-            <p className="deliverImg">
-              <img src={deliveryImg} alt="imgs" />
-            </p>
-            <dl className="p-pcs">
-              <dt>
-                <label htmlFor="p-pieces">数量</label>
-              </dt>
-
-              <dd>
-                <input
-                  className="g-input g-input-sm addToCartQty"
-                  id="p-pieces"
-                  type="text"
-                  name="quantity"
-                  defaultValue="1"
-                />
-              </dd>
-            </dl>
-            <div>
-              <h1 className="last-price">{price}円</h1>
-            </div>
-
-            <button className="addToCartBtn" id="p-addItem" type="button">
-              <i className="g-i-add-cart" aria-hidden="true">
-                {" "}
-                <span>カートに入れる</span>
-              </i>
-            </button>
-          </div>
+        <div className="sidebar">
+          <SideBar
+            deliveryMethod={deliveryMethod}
+            deliveryTime={deliveryTime}
+            deliveryImg={deliveryImg}
+            price={price}
+            skuName={skuName}
+            color={color}
+            skuId={skuId}
+            size={size}
+            stock={stock}
+            img1={img1}
+            goodsId={goodsId}
+          />
         </div>
       </div>
     </Fragment>

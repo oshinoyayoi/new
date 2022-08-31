@@ -1,0 +1,114 @@
+.g-itemList {
+  display: flex;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  box-sizing: border-box;
+  border-bottom: 1px dashed #dbdbdb;
+  text-align: center;
+  width: 760px;
+}
+.g-itemList .media-head {
+  margin-right: 30px;
+}
+.g-itemList .media-head img {
+  height: 140px;
+  width: 140px;
+  margin-bottom: 20px;
+}
+.g-itemList .middle {
+  width: 215px;
+  margin-right: 25px;
+  font-family: sans-serif;
+  overflow-x: hidden;
+  height: 100%;
+  margin: 0;
+  color: #333;
+  text-align: left;
+}
+.g-itemList .middle .skuid {
+  -webkit-text-size-adjust: 100%;
+     -moz-text-size-adjust: 100%;
+          text-size-adjust: 100%;
+  font-size: larger;
+  margin-bottom: 10px;
+  margin-right: 20px;
+}
+.g-itemList .middle .code {
+  margin-bottom: 10px;
+  font-size: small;
+}
+.g-itemList .middle .color {
+  font-size: small;
+}
+.g-itemList .middle .size {
+  font-size: small;
+  margin-bottom: 10px;
+}
+.g-itemList .middle .price {
+  display: flex;
+  margin-bottom: 10px;
+}
+.g-itemList .middle .price .nor {
+  font-size: medium;
+  font-weight: bold;
+  margin-right: 5px;
+}
+.g-itemList .middle .zaiku {
+  font-size: small;
+}
+.g-itemList .middle .chuhe {
+  font-size: small;
+}
+.g-itemList .right .one {
+  display: flex;
+  margin-bottom: 10px;
+}
+.g-itemList .right .one .g-input-g-input-sm-addToCartQty {
+  min-width: 0;
+  padding: 11px 14px;
+  text-align: left;
+  border: 1px solid #dbdbdb;
+  border-radius: 4px;
+  background-color: #fff;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-rtl-ordering: logical;
+  cursor: text;
+  width: 92px;
+  height: 37px;
+  margin-right: 10px;
+}
+.g-itemList .right .two {
+  display: flex;
+  margin-bottom: 10px;
+}
+.g-itemList .right .two .ato {
+  font-weight: normal;
+  display: inline-flex;
+  padding: 0;
+  transition: background-color 0.2s;
+  vertical-align: middle;
+  border: 1px solid #dbdbdb;
+  border-radius: 4px;
+  background-color: #fff;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 92px;
+  height: 37px;
+  margin-right: 10px;
+  color: #009e96;
+}
+.g-itemList .right .two .ato span {
+  padding: 5px 10px;
+  padding-top: 5px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  transform: none;
+}
+.g-itemList .right .three {
+  text-align: left;
+}/*# sourceMappingURL=cartlist.styles.css.map */
