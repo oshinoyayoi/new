@@ -1,0 +1,78 @@
+.lead-to-home {
+  margin-bottom: 20px;
+}
+.liked-main {
+  text-align: left;
+  height: 700px;
+  width: 900px;
+  box-sizing: border-box;
+  margin-left: 250px;
+  .tittle-like {
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin-bottom: 40px;
+  }
+  .creat-list {
+    margin-bottom: 40px;
+    .input-name {
+      height: 37px;
+      width: 295px;
+      min-width: 0;
+      padding: 11px 14px;
+      text-align: left;
+      border: 1px solid #dbdbdb;
+      border-radius: 4px;
+      background-color: #fff;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+    }
+    .button {
+      margin-left: 20px;
+      border-color: #009e96;
+      background-color: #009e96;
+      color: #fff;
+      height: 36px;
+      font-weight: normal;
+      display: inline-flex;
+      padding: 0;
+      transition: background-color 0.2s;
+      vertical-align: middle;
+      border: 1px solid #dbdbdb;
+      border-radius: 4px;
+      appearance: none;
+      height: 36px;
+      width: 106px;
+      text-align: center;
+    }
+  }
+  .sub-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 25px;
+  }
+  .handle-liked {
+    display: flex;
+    margin-bottom: 15px;
+    .check-every {
+      margin-right: 30px;
+      input {
+        margin-right: 5px;
+      }
+    }
+    .delete-like {
+      display: flex;
+      margin-left: 15px;
+      .button-like {
+        margin-left: 1px;
+      }
+    }
+  }
+  .like-list {
+    border: 0 solid #dbdbdb;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+}

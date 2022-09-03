@@ -1,0 +1,132 @@
+.main-page {
+  display: flex;
+  margin-top: 70px;
+  margin-left: 30px;
+  .mypage-left {
+    height: 270px;
+    width: 360px;
+    margin-right: 20px;
+    .login-out {
+      display: flex;
+      .green-background {
+        padding: 1px 12px 1px 12px;
+        background-color: #009e96;
+        color: #ffffff;
+        font-weight: bold;
+        margin-right: 5px;
+        font-size: 1.1rem;
+        line-height: 1.5;
+      }
+      .out {
+        color: #009e96;
+        margin-left: 10px;
+      }
+    }
+    .attention-mypage {
+      font-size: small;
+    }
+    .user-name-mypage {
+      display: flex;
+      margin-bottom: 20px;
+    }
+    .code-mypage {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .point-now {
+      display: flex;
+      margin-bottom: 5px;
+      .point-now-word {
+        margin-right: 200px;
+      }
+    }
+    .point-used {
+      display: flex;
+      margin-bottom: 5px;
+      .point-used-word {
+        margin-right: 158px;
+      }
+    }
+  }
+  .mypage-right {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    box-sizing: border-box;
+    -ms-grid-row: 3;
+    grid-row: 3;
+    -ms-grid-column: 2;
+    grid-column: 2;
+    height: 300px;
+    width: 670px;
+    overflow: hidden;
+    .bought {
+      border-width: 2px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #dbdbdb;
+      border-radius: 4px;
+      background-color: #fff;
+      height: 123px;
+      width: 196px;
+      margin-right: 20px;
+      .icon-1 {
+        height: 50px;
+        width: 50px;
+      }
+    }
+    .liked {
+      border-width: 2px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #dbdbdb;
+      border-radius: 4px;
+      background-color: #fff;
+      height: 123px;
+      width: 196px;
+      margin-right: 20px;
+    }
+    .shop-liked {
+      border-width: 2px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #dbdbdb;
+      border-radius: 4px;
+      background-color: #fff;
+      height: 123px;
+      width: 196px;
+    }
+    .change-my {
+      border-width: 2px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #dbdbdb;
+      border-radius: 4px;
+      background-color: #fff;
+      height: 123px;
+      width: 196px;
+      margin-right: 20px;
+    }
+    .address {
+      border-width: 2px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #dbdbdb;
+      border-radius: 4px;
+      background-color: #fff;
+      height: 123px;
+      width: 196px;
+      margin-right: 20px;
+    }
+    .pay-card {
+      border-width: 2px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #dbdbdb;
+      border-radius: 4px;
+      background-color: #fff;
+      height: 123px;
+      width: 196px;
+    }
+  }
+}

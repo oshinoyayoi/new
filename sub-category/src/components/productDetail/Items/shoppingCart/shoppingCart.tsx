@@ -41,6 +41,12 @@ const ShoppingCart = () => {
       });
   }, [goodsCountRef, number, userId]);
 
+  useEffect(() => {
+    axios.get("http://localhost:8080/buyLatter").then((response) => {
+      setCartAfter(response.data.data);
+    });
+  }, [cartList]);
+
   //删除商品
   const deleteCart = (cartItemId: number) => {
     axios
@@ -52,7 +58,18 @@ const ShoppingCart = () => {
         }
       });
   };
-  /*
+
+  const deleteBuyLatter = (cartItemId: number) => {
+    axios
+      .delete(`${"http://localhost:8080/buyLatter"}/${cartItemId}`)
+      .then((response) => {
+        setCartAfter(response.data.data);
+        if (response.data.resultCode === 200) {
+          alert("Deleted remove succeed!");
+        }
+      });
+  };
+
   //修改isDeleted
   const changeIsDeleted = (cartItemId: number) => {
     axios
@@ -63,7 +80,16 @@ const ShoppingCart = () => {
         setCartList(response.data.data);
       });
   };
-  */
+  //修改isDeleted
+  const changeBuyLatter = (cartItemId: number) => {
+    axios
+      .put(
+        `${"http://localhost:8080/buyLatter/newList"}?cartItemId=${cartItemId}`
+      )
+      .then((response) => {
+        setCartAfter(response.data.data);
+      });
+  };
   // console.log(cartAfter);
 
   //total price
@@ -117,8 +143,7 @@ const ShoppingCart = () => {
                           goodsCountRef={goodsCountRef}
                           number={number}
                           setNumber={setNumber}
-                          cartAfter={cartAfter}
-                          setCartAfter={setCartAfter}
+                          changeIsDeleted={changeIsDeleted}
                         />
                       );
                     })
@@ -136,9 +161,16 @@ const ShoppingCart = () => {
               「あとで買う」に入っている商品
             </div>
             <ul className="g-layout_body">
-              {Array.isArray(cartList)
-                ? cartList.map((items: ItemsProps, cartItemId) => {
-                    return <BuyLatter key={cartItemId} items={items} />;
+              {Array.isArray(cartAfter)
+                ? cartAfter.map((items: ItemsProps, cartItemId) => {
+                    return (
+                      <BuyLatter
+                        key={cartItemId}
+                        items={items}
+                        deleteBuyLatter={deleteBuyLatter}
+                        changeBuyLatter={changeBuyLatter}
+                      />
+                    );
                   })
                 : null}
             </ul>

@@ -27,8 +27,7 @@ type ShoppingProps = {
   goodsCountRef: React.RefObject<HTMLInputElement>;
   number: number;
   setNumber: React.Dispatch<React.SetStateAction<number>>;
-  cartAfter: never[];
-  setCartAfter: React.Dispatch<React.SetStateAction<never[]>>;
+  changeIsDeleted: (cartItemId: number) => void;
 };
 
 const CartList = ({
@@ -38,8 +37,7 @@ const CartList = ({
   goodsCountRef,
   number,
   setNumber,
-  cartAfter,
-  setCartAfter,
+  changeIsDeleted,
 }: ShoppingProps) => {
   const {
     cartItemId,
@@ -73,7 +71,7 @@ const CartList = ({
         setNumber(Number(goodsCountRef.current?.value));
       });
     //  goodsCountRef.current!.value = "1";
-  }, []);
+  }, [number]);
 
   const changeCount = () => {
     setNumber(Number(goodsCountRef.current?.value));
@@ -115,7 +113,7 @@ const CartList = ({
             </div>
           </div>
           <div className="two">
-            <button className="ato">
+            <button className="ato" onClick={() => changeIsDeleted(cartItemId)}>
               <span>あとで買う</span>
             </button>
             <div className="g-price-g-lg-price-lg">

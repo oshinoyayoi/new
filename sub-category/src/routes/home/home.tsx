@@ -4,6 +4,9 @@ import Category from "../../category/category";
 import ShoppingCart from "../../components/productDetail/Items/shoppingCart/shoppingCart";
 import ProductDetail from "../../components/productDetail/productDetail";
 import HomePage from "../../homepage/homepage";
+import ChangeAddress from "../../mypage/changeAddress/changeAddress";
+import Liked from "../../mypage/liked/liked";
+import Mypage from "../../mypage/mypage";
 
 import SubHome from "./subhome.component";
 const Home = () => {
@@ -21,6 +24,9 @@ const Home = () => {
       />
       <Route path="sku/:goodsId" element={<ProductDetail />} />
       <Route path="shoppingcart" element={<ShoppingCart />} />
+      <Route path="mypage" element={<Mypage />} />
+      <Route path="mypage/liked" element={<Liked />} />
+      <Route path="mypage/address" element={<ChangeAddress />} />
     </Routes>
   );
 };

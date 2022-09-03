@@ -5,7 +5,9 @@
 .homepage-background .header {
   position: block;
 }
-.homepage-background .header .category {
+.homepage-background .header .g_outer-head {
+  display: flex;
+  flex-direction: row;
   display: block;
   position: relative;
   margin: 0 auto;
@@ -18,7 +20,7 @@
   box-sizing: border-box;
   z-index: 100;
 }
-.homepage-background .header .category .button {
+.homepage-background .header .g_outer-head .category .button {
   display: block;
   width: 240px;
   height: 50px;
@@ -28,10 +30,10 @@
   background-color: #e2dcdc;
   position: relative;
 }
-.homepage-background .header .category .button:hover + .content_category {
+.homepage-background .header .g_outer-head .category .button:hover + .content_category {
   display: block;
 }
-.homepage-background .header .category .content_category {
+.homepage-background .header .g_outer-head .category .content_category {
   display: none;
   height: 350px;
   width: 1000px;
@@ -46,10 +48,10 @@
   border-top-width: 0;
   text-align: center;
 }
-.homepage-background .header .category .content_category:hover {
+.homepage-background .header .g_outer-head .category .content_category:hover {
   display: block;
 }
-.homepage-background .header .category .content_category .a-goodsList {
+.homepage-background .header .g_outer-head .category .content_category .a-goodsList {
   overflow: auto;
   overflow-x: hidden;
   margin: 0;
@@ -57,4 +59,14 @@
   width: 240px;
   height: 100%;
   list-style: none;
+}
+.homepage-background .header .g_outer-head .mypage {
+  height: 50px;
+  width: 200px;
+  position: absolute;
+  right: 0px;
+  top: 10px;
+  z-index: 1;
+  text-align: center;
+  font-size: large;
 }/*# sourceMappingURL=category.styles.css.map */

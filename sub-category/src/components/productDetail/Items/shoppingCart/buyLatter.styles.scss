@@ -1,0 +1,115 @@
+.g-itemList-2 {
+  display: flex;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  box-sizing: border-box;
+  border-bottom: 1px dashed #dbdbdb;
+  text-align: center;
+  width: 760px;
+  float: left;
+  .media-head {
+    margin-right: 30px;
+    img {
+      height: 140px;
+      width: 140px;
+      margin-bottom: 20px;
+    }
+  }
+  .middle {
+    width: 215px;
+    margin-right: 25px;
+    font-family: sans-serif;
+    overflow-x: hidden;
+    height: 100%;
+    margin: 0;
+    color: #333;
+    text-align: left;
+    .skuid {
+      text-size-adjust: 100%;
+      font-size: larger;
+      margin-bottom: 10px;
+      margin-right: 20px;
+    }
+    .code {
+      margin-bottom: 10px;
+      font-size: small;
+    }
+    .color {
+      font-size: small;
+    }
+    .size {
+      font-size: small;
+      margin-bottom: 10px;
+    }
+    .price {
+      display: flex;
+      margin-bottom: 10px;
+      .nor {
+        font-size: medium;
+        font-weight: bold;
+        margin-right: 5px;
+      }
+    }
+    .zaiku {
+      font-size: small;
+    }
+    .chuhe {
+      font-size: small;
+    }
+  }
+  .right {
+    .one {
+      display: flex;
+      margin-bottom: 10px;
+      .g-input-g-input-sm-addToCartQty {
+        min-width: 0;
+        padding: 11px 14px;
+        text-align: left;
+        border: 1px solid #dbdbdb;
+        border-radius: 4px;
+        background-color: #fff;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        -webkit-rtl-ordering: logical;
+        cursor: text;
+        width: 92px;
+        height: 37px;
+        margin-right: 10px;
+      }
+    }
+    .two {
+      display: flex;
+      margin-bottom: 10px;
+      .ato {
+        font-weight: normal;
+        display: inline-flex;
+        padding: 0;
+        transition: background-color 0.2s;
+        vertical-align: middle;
+        border: 1px solid #dbdbdb;
+        border-radius: 4px;
+        background-color: #fff;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        width: 108px;
+        height: 37px;
+        margin-right: 10px;
+        color: #009e96;
+        span {
+          padding: 5px 10px;
+          padding-top: 5px;
+          padding-right: 10px;
+          padding-bottom: 5px;
+          padding-left: 10px;
+          transform: none;
+        }
+      }
+    }
+    .three {
+      text-align: left;
+    }
+  }
+}

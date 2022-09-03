@@ -1,0 +1,132 @@
+.main-page {
+  display: flex;
+  margin-top: 70px;
+  margin-left: 30px;
+}
+.main-page .mypage-left {
+  height: 270px;
+  width: 360px;
+  margin-right: 20px;
+}
+.main-page .mypage-left .login-out {
+  display: flex;
+}
+.main-page .mypage-left .login-out .green-background {
+  padding: 1px 12px 1px 12px;
+  background-color: #009e96;
+  color: #ffffff;
+  font-weight: bold;
+  margin-right: 5px;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+.main-page .mypage-left .login-out .out {
+  color: #009e96;
+  margin-left: 10px;
+}
+.main-page .mypage-left .attention-mypage {
+  font-size: small;
+}
+.main-page .mypage-left .user-name-mypage {
+  display: flex;
+  margin-bottom: 20px;
+}
+.main-page .mypage-left .code-mypage {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.main-page .mypage-left .point-now {
+  display: flex;
+  margin-bottom: 5px;
+}
+.main-page .mypage-left .point-now .point-now-word {
+  margin-right: 200px;
+}
+.main-page .mypage-left .point-used {
+  display: flex;
+  margin-bottom: 5px;
+}
+.main-page .mypage-left .point-used .point-used-word {
+  margin-right: 158px;
+}
+.main-page .mypage-right {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  box-sizing: border-box;
+  -ms-grid-row: 3;
+  grid-row: 3;
+  -ms-grid-column: 2;
+  grid-column: 2;
+  height: 300px;
+  width: 670px;
+  overflow: hidden;
+}
+.main-page .mypage-right .bought {
+  border-width: 2px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #dbdbdb;
+  border-radius: 4px;
+  background-color: #fff;
+  height: 123px;
+  width: 196px;
+  margin-right: 20px;
+}
+.main-page .mypage-right .bought .icon-1 {
+  height: 50px;
+  width: 50px;
+}
+.main-page .mypage-right .liked {
+  border-width: 2px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #dbdbdb;
+  border-radius: 4px;
+  background-color: #fff;
+  height: 123px;
+  width: 196px;
+  margin-right: 20px;
+}
+.main-page .mypage-right .shop-liked {
+  border-width: 2px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #dbdbdb;
+  border-radius: 4px;
+  background-color: #fff;
+  height: 123px;
+  width: 196px;
+}
+.main-page .mypage-right .change-my {
+  border-width: 2px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #dbdbdb;
+  border-radius: 4px;
+  background-color: #fff;
+  height: 123px;
+  width: 196px;
+  margin-right: 20px;
+}
+.main-page .mypage-right .address {
+  border-width: 2px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #dbdbdb;
+  border-radius: 4px;
+  background-color: #fff;
+  height: 123px;
+  width: 196px;
+  margin-right: 20px;
+}
+.main-page .mypage-right .pay-card {
+  border-width: 2px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #dbdbdb;
+  border-radius: 4px;
+  background-color: #fff;
+  height: 123px;
+  width: 196px;
+}/*# sourceMappingURL=mypage.styles.css.map */

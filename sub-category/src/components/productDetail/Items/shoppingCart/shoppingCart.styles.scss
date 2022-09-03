@@ -4,9 +4,10 @@
 }
 .main-background {
   display: flex;
+  flex-direction: column;
   .background {
     display: flex;
-    position: absolute;
+
     width: 750px;
     .main__inner-wrapper {
       position: relative;

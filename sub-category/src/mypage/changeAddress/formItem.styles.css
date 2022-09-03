@@ -1,0 +1,162 @@
+.backgroung .name {
+  display: flex;
+  margin-top: 30px;
+}
+.backgroung .name .input-name {
+  margin-right: 20px;
+  margin-left: 20px;
+}
+.backgroung .name .bixu {
+  margin-right: 30px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(255, 3, 3);
+  height: 26px;
+  width: 32px;
+}
+.backgroung .name .right {
+  display: flex;
+  flex-direction: column;
+  height: 103px;
+  width: 500px;
+  margin-left: 30px;
+}
+.backgroung .name input {
+  height: 40px;
+  width: 500px;
+  border: 1px solid #dbdbdb;
+  border-radius: 4px;
+}
+.backgroung .user-name {
+  display: flex;
+  margin-top: 30px;
+}
+.backgroung .user-name .input-name {
+  margin-right: 20px;
+  margin-left: 20px;
+}
+.backgroung .user-name .bixu {
+  margin-right: 30px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(255, 3, 3);
+  height: 26px;
+  width: 32px;
+}
+.backgroung .user-name .right {
+  display: flex;
+  flex-direction: row;
+  height: 103px;
+  width: 500px;
+  margin-left: 30px;
+}
+.backgroung .user-name input {
+  height: 40px;
+  width: 121px;
+  margin-right: 20px;
+  border: 1px solid #dbdbdb;
+  border-radius: 4px;
+}
+.backgroung .user-name-cata {
+  display: flex;
+  margin-top: 30px;
+}
+.backgroung .user-name-cata .input-name {
+  margin-right: 20px;
+  margin-left: 20px;
+}
+.backgroung .user-name-cata .bixu {
+  margin-right: 30px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(255, 3, 3);
+  height: 26px;
+  width: 32px;
+}
+.backgroung .user-name-cata .right {
+  display: flex;
+  flex-direction: column;
+  height: 103px;
+  width: 500px;
+  margin-left: 30px;
+}
+.backgroung .user-name-cata .right .name-felx {
+  display: flex;
+}
+.backgroung .user-name-cata .right .name-felx .left-input {
+  margin-right: 10px;
+}
+.backgroung .user-name-cata input {
+  height: 40px;
+  width: 121px;
+  border: 1px solid #dbdbdb;
+  border-radius: 4px;
+}
+.backgroung .tel-number {
+  display: flex;
+  margin-top: 30px;
+}
+.backgroung .tel-number .input-tel {
+  margin-right: 20px;
+  margin-left: 20px;
+}
+.backgroung .tel-number .bixu {
+  margin-right: 30px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(255, 3, 3);
+  height: 26px;
+  width: 32px;
+}
+.backgroung .tel-number .right {
+  display: flex;
+  flex-direction: column;
+  height: 103px;
+  width: 500px;
+  margin-left: 30px;
+}
+.backgroung .tel-number input {
+  height: 40px;
+  width: 500px;
+  border: 1px solid #dbdbdb;
+  border-radius: 4px;
+}
+.backgroung .post-number {
+  display: flex;
+  margin-top: 30px;
+}
+.backgroung .post-number .input-tel {
+  margin-right: 20px;
+  margin-left: 20px;
+}
+.backgroung .post-number .bixu {
+  margin-right: 30px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(255, 3, 3);
+  height: 26px;
+  width: 32px;
+}
+.backgroung .post-number .right {
+  display: flex;
+  flex-direction: column;
+  height: 103px;
+  width: 500px;
+  margin-left: 30px;
+}
+.backgroung .post-number .right .flex {
+  display: flex;
+}
+.backgroung .post-number .right span {
+  margin-left: 20px;
+}
+.backgroung .post-number input {
+  height: 37px;
+  width: 103px;
+  border: 1px solid #dbdbdb;
+  border-radius: 4px;
+}
+
+p {
+  color: red;
+}/*# sourceMappingURL=formItem.styles.css.map */

@@ -3,8 +3,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import MenuItem from "./components/MenuItems";
 import { Link, Outlet, useParams } from "react-router-dom";
-import { Pagination, Navigation } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
+
 export type MenuItemsProps = {
   categoryName: string;
   subList: MenuItemsProps[];
@@ -32,20 +31,27 @@ function Category() {
             <button className="cart">カート</button>
           </Link>
         </div>
-        <div className="category">
-          <div className="button">カテゴリ</div>
-          <div className="content_category">
-            <ul className="a-goodsList">
-              {categories.map((Item) => {
-                return (
-                  <MenuItem
-                    key={Item.categoryId}
-                    Item={Item}
-                    secondCategoryName={secondCategoryName}
-                  />
-                );
-              })}
-            </ul>
+        <div className="g_outer-head">
+          <div className="category">
+            <div className="button">カテゴリ</div>
+            <div className="content_category">
+              <ul className="a-goodsList">
+                {categories.map((Item) => {
+                  return (
+                    <MenuItem
+                      key={Item.categoryId}
+                      Item={Item}
+                      secondCategoryName={secondCategoryName}
+                    />
+                  );
+                })}
+              </ul>
+            </div>
+          </div>
+          <div className="mypage">
+            <Link className="toSubCategory" to={`/mypage`}>
+              マイページ
+            </Link>
           </div>
         </div>
       </div>

@@ -1,0 +1,17 @@
+.goods-list {
+  display: flex;
+  flex-direction: column;
+  margin-right: 35px;
+  text-align: center;
+}
+.goods-list img {
+  height: 155px;
+  width: 155px;
+}
+.goods-list .muji-goodsname {
+  margin-bottom: 20px;
+}
+.goods-list .muji-price {
+  font-size: larger;
+  font-weight: bolder;
+}/*# sourceMappingURL=goodsItem.style.css.map */

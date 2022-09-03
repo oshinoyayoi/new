@@ -1,0 +1,168 @@
+.backgroung {
+  .name {
+    display: flex;
+    margin-top: 30px;
+    .input-name {
+      margin-right: 20px;
+      margin-left: 20px;
+    }
+    .bixu {
+      margin-right: 30px;
+      border-style: solid;
+      border-width: 1px;
+      border-color: rgb(255, 3, 3);
+      height: 26px;
+      width: 32px;
+    }
+    .right {
+      display: flex;
+      flex-direction: column;
+      height: 103px;
+      width: 500px;
+      margin-left: 30px;
+    }
+    input {
+      height: 40px;
+      width: 500px;
+      border: 1px solid #dbdbdb;
+      border-radius: 4px;
+    }
+  }
+
+  .user-name {
+    display: flex;
+    margin-top: 30px;
+    .input-name {
+      margin-right: 20px;
+      margin-left: 20px;
+    }
+    .bixu {
+      margin-right: 30px;
+      border-style: solid;
+      border-width: 1px;
+      border-color: rgb(255, 3, 3);
+      height: 26px;
+      width: 32px;
+    }
+    .right {
+      display: flex;
+      flex-direction: row;
+      height: 103px;
+      width: 500px;
+      margin-left: 30px;
+    }
+    input {
+      height: 40px;
+      width: 121px;
+      margin-right: 20px;
+      border: 1px solid #dbdbdb;
+      border-radius: 4px;
+    }
+  }
+
+  .user-name-cata {
+    display: flex;
+    margin-top: 30px;
+    .input-name {
+      margin-right: 20px;
+      margin-left: 20px;
+    }
+    .bixu {
+      margin-right: 30px;
+      border-style: solid;
+      border-width: 1px;
+      border-color: rgb(255, 3, 3);
+      height: 26px;
+      width: 32px;
+    }
+    .right {
+      display: flex;
+      flex-direction: column;
+      height: 103px;
+      width: 500px;
+      margin-left: 30px;
+      .name-felx {
+        display: flex;
+        .left-input {
+          margin-right: 10px;
+        }
+      }
+    }
+    input {
+      height: 40px;
+      width: 121px;
+      border: 1px solid #dbdbdb;
+      border-radius: 4px;
+    }
+  }
+
+  .tel-number {
+    display: flex;
+    margin-top: 30px;
+    .input-tel {
+      margin-right: 20px;
+      margin-left: 20px;
+    }
+    .bixu {
+      margin-right: 30px;
+      border-style: solid;
+      border-width: 1px;
+      border-color: rgb(255, 3, 3);
+      height: 26px;
+      width: 32px;
+    }
+    .right {
+      display: flex;
+      flex-direction: column;
+      height: 103px;
+      width: 500px;
+      margin-left: 30px;
+    }
+    input {
+      height: 40px;
+      width: 500px;
+      border: 1px solid #dbdbdb;
+      border-radius: 4px;
+    }
+  }
+
+  .post-number {
+    display: flex;
+    margin-top: 30px;
+    .input-tel {
+      margin-right: 20px;
+      margin-left: 20px;
+    }
+    .bixu {
+      margin-right: 30px;
+      border-style: solid;
+      border-width: 1px;
+      border-color: rgb(255, 3, 3);
+      height: 26px;
+      width: 32px;
+    }
+    .right {
+      display: flex;
+      flex-direction: column;
+      height: 103px;
+      width: 500px;
+      margin-left: 30px;
+      .flex {
+        display: flex;
+      }
+      span {
+        margin-left: 20px;
+        //   color: #009e96;
+      }
+    }
+    input {
+      height: 37px;
+      width: 103px;
+      border: 1px solid #dbdbdb;
+      border-radius: 4px;
+    }
+  }
+}
+p {
+  color: red;
+}

@@ -5,10 +5,10 @@
 
 .main-background {
   display: flex;
+  flex-direction: column;
 }
 .main-background .background {
   display: flex;
-  position: absolute;
   width: 750px;
 }
 .main-background .background .main__inner-wrapper {
