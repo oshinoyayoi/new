@@ -86,8 +86,10 @@ const Mypage = () => {
               </Link>
             </ul>
             <ul className="pay-card">
-              <AccountBookOutlined className="icon-6" />
-              クレジットカードの変更・登録
+              <Link className="nav-link" to="/mypage/creditcard">
+                <AccountBookOutlined className="icon-6" />
+                クレジットカードの変更・登録
+              </Link>
             </ul>
           </div>
         </div>

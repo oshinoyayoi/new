@@ -4,6 +4,7 @@ import { Pagination, Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Category from "../category/category";
 import Recommendation from "../mypage/recommendation/recommendation";
+import { Button } from "../stories/Button";
 import "./homepage.styles.css";
 import Slidershow from "./slidershow/slidershow";
 const HomePage = () => {

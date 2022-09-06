@@ -118,44 +118,32 @@ const FormItem = () => {
                 {...register("firstName", {
                   required: true,
                   maxLength: 10,
-                  pattern:
-                    /[一-龠]+|[ぁ-ゔ]+|[ァ-ヴー]+|[a-zA-Z0-9]+|[ａ-ｚＡ-Ｚ０-９]+|[々〆〤ヶ]+/u,
                 })}
                 //  ref={firstNameRef}
                 placeholder="姓"
               />
-              {errors?.firstName?.type === "required" && (
-                <p>入力必須項目です。</p>
-              )}
-              {errors?.firstName?.type === "maxLength" && (
-                <p>10文字以内で入力してください。</p>
-              )}
-              {errors?.firstNameCata?.type === "pattern" && (
-                <p>漢字で入力してください。</p>
-              )}
-            </div>
-
-            <div>
-              {" "}
               <input
                 {...register("lastName", {
                   required: true,
                   maxLength: 10,
-                  pattern:
-                    /[一-龠]+|[ぁ-ゔ]+|[ァ-ヴー]+|[a-zA-Z0-9]+|[ａ-ｚＡ-Ｚ０-９]+|[々〆〤ヶ]+/u,
+                  //   pattern:
+                  //     /[一-龠]+|[ぁ-ゔ]+|[ァ-ヴー]+|[a-zA-Z0-9]+|[ａ-ｚＡ-Ｚ０-９]+|[々〆〤ヶ]+/u,
                 })}
                 //   ref={lastNameRef}
                 placeholder="名"
               />
-              {errors?.lastName?.type === "required" && (
+              {(errors?.firstName?.type === "required" && (
                 <p>入力必須項目です。</p>
-              )}
-              {errors?.lastName?.type === "maxLength" && (
+              )) ||
+                (errors?.lastName?.type === "required" && (
+                  <p>入力必須項目です。</p>
+                ))}
+              {(errors?.firstName?.type === "maxLength" && (
                 <p>10文字以内で入力してください。</p>
-              )}
-              {errors?.firstNameCata?.type === "pattern" && (
-                <p>漢字で入力してください。</p>
-              )}
+              )) ||
+                (errors?.lastName?.type === "maxLength" && (
+                  <p>10文字以内で入力してください。</p>
+                ))}
             </div>
           </div>
         </div>
@@ -177,39 +165,35 @@ const FormItem = () => {
                   //    ref={firstNameCataRef}
                   placeholder="セイ"
                 />
-                <div>
-                  {errors?.firstNameCata?.type === "required" && (
-                    <p>入力必須項目です。</p>
-                  )}
-                  {errors?.firstNameCata?.type === "maxLength" && (
-                    <p>20文字以内のカタカナで入力してください。</p>
-                  )}
-                  {errors?.firstNameCata?.type === "pattern" && (
-                    <p>20文字以内のカタカナで入力してください。</p>
-                  )}
-                </div>
-              </div>
-
-              <div>
-                {" "}
                 <input
                   {...register("lastNameCata", {
                     required: true,
                     maxLength: 20,
-                    pattern: /^[A-Za-z]+$/i,
+                    pattern: /[ァ-ヿ]/i,
                   })}
                   //    ref={lastNameCataRef}
                   placeholder="メイ"
                 />
-                {errors?.lastNameCata?.type === "required" && (
-                  <p>入力必須項目です。</p>
-                )}
-                {errors?.lastNameCata?.type === "maxLength" && (
-                  <p>20文字以内のアルファベットで入力してください。</p>
-                )}
-                {errors?.lastNameCata?.type === "pattern" && (
-                  <p>20文字以内のアルファベットで入力してください。</p>
-                )}
+                <div>
+                  {(errors?.firstNameCata?.type === "required" && (
+                    <p>入力必須項目です。</p>
+                  )) ||
+                    (errors?.lastNameCata?.type === "required" && (
+                      <p>入力必須項目です。</p>
+                    ))}
+                  {(errors?.firstNameCata?.type === "maxLength" && (
+                    <p>20文字以内のカタカナで入力してください。</p>
+                  )) ||
+                    (errors?.lastNameCata?.type === "maxLength" && (
+                      <p>20文字以内のカタカナで入力してください。</p>
+                    ))}
+                  {(errors?.firstNameCata?.type === "pattern" && (
+                    <p>20文字以内のカタカナで入力してください。</p>
+                  )) ||
+                    (errors?.lastNameCata?.type === "pattern" && (
+                      <p>20文字以内のカタカナで入力してください。</p>
+                    ))}
+                </div>
               </div>
             </div>
           </div>
